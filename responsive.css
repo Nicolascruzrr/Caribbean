@@ -1,0 +1,931 @@
+
+
+
+/* Desktop/Large desktop */
+@media (min-width: 1440px) {
+  .new-hero .new-hero-sub {
+    max-width: 75ch !important;
+    font-size: 1.15rem !important;
+    line-height: 1.7 !important;
+    height: 3.4em !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* NEW HERO - Video más claro en tablets */
+  .new-hero { --overlay: rgba(0,0,0,.4) !important; }
+  
+  
+  .new-hero .new-hero-title .title-mobile { display: inline !important; }
+  .new-hero .new-hero-title .title-desktop { display: none !important; }
+  .new-hero .new-hero-title { font-size: 2.5rem !important; }
+  
+  /* NEW HERO - Subir angle down en tablet vertical */
+  .new-hero .scroll-indicator {
+    bottom: 120px !important;
+  }
+  
+  /* FOOTER - Ajustar posiciones en tablet vertical */
+  .footer-col:nth-child(1) {
+    transform: translateX(20px) !important;
+  }
+  
+  .footer-col:nth-child(2) {
+    transform: translateX(15px) !important;
+  }
+  
+  .footer-col:nth-child(3) {
+    transform: translateX(-30px) !important;
+  }
+  
+  .footer-logo {
+    transform: translateX(0) !important;
+  }
+  
+  /* BOTONES - Transiciones suaves para tablet vertical */
+  .btn-form {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-form:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3) !important;
+  }
+  
+  .new-hero .btn-primary,
+  .new-hero .btn-secondary {
+    transition: all 0.3s ease !important;
+  }
+  
+  .new-hero .btn-primary:hover,
+  .new-hero .btn-secondary:hover {
+    transform: scale(1.05) translateY(-2px) !important;
+  }
+  
+  .btn-split {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-split:hover {
+    transform: translateY(-2px) !important;
+  }
+  
+  .btn-icon {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-icon:hover {
+    transform: translateY(-2px) !important;
+  }
+  
+  /* MODAL - Forzar animación como en desktop/tablet horizontal */
+  .project-modal.active {
+    animation: fadeIn 0.3s ease-out !important;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* TOUCH HOVER - Efectos táctiles para iPad vertical */
+  .timeline-card.touch-active {
+    transform: translateY(-8px) scale(1.03) !important;
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25) !important;
+  }
+  
+  .timeline-icon.touch-active {
+    transform: translateX(-50%) scale(1.15) !important;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5) !important;
+  }
+  
+  .btn-split.primary.touch-active {
+    background: #E4C85C !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(212,175,55,.35) !important;
+  }
+  
+  .btn-icon.touch-active {
+    border-color: #D4AF37 !important;
+    color: #D4AF37 !important;
+    transform: translateY(-2px) !important;
+  }
+  
+  .btn-form.touch-active {
+    background: #E4C85C !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4) !important;
+  }
+  
+  .contact-icon.touch-active {
+    background: #D4AF37 !important;
+  }
+  
+  .contact-icon.touch-active svg {
+    fill: #181818 !important;
+  }
+  
+  .social-icon.touch-active {
+    background: #D4AF37 !important;
+    color: #181818 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
+  }
+  
+  .service-card.touch-active {
+    transform: scale(1.02) !important;
+  }
+  
+  .split-card.touch-active {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+  }
+  
+  .media-card.touch-active {
+    transform: translateY(-6px) scale(1.01) !important;
+    box-shadow: 0 30px 60px rgba(0,0,0,.45) !important;
+    filter: saturate(1.05) !important;
+  }
+}
+
+/* ============== PÁRRAFOS DEL HERO SECTION ============== */
+/* Mostrar solo el párrafo por defecto en todos los dispositivos */
+.new-hero-sub-tablet-horizontal { display: none !important; }
+
+/* TABLET VERTICAL Y MÓVIL - Solo mostrar el párrafo original */
+@media (max-width: 1023px) {
+  .new-hero .new-hero-sub-default { 
+    display: block !important;
+    /* Organizar mejor el párrafo en móvil */
+    max-width: 90% !important;
+    margin: 0 auto 24px auto !important;
+    padding: 0 16px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+  .new-hero .new-hero-sub-tablet-horizontal { display: none !important; }
+}
+
+/* DESKTOP - Solo mostrar el párrafo original */
+@media (min-width: 1025px) {
+  .new-hero .new-hero-sub-default { 
+    display: block !important;
+    /* Forzar 2 líneas en desktop y large desktop */
+    max-width: 75ch !important;
+    font-size: 1.15rem !important;
+    line-height: 1.7 !important;
+    height: 3.4em !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .new-hero .new-hero-sub-tablet-horizontal { display: none !important; }
+}
+
+/* ============== MÓVILES MUY PEQUEÑOS (max-width: 320px) ============== */
+@media (max-width: 320px) {
+  .new-hero .btn-primary,
+  .new-hero .btn-secondary {
+    padding: 14px 22px !important;
+    font-size: 0.9rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* ============== TABLET - MEJORAS DE INTERACCIÓN TÁCTIL ============== */
+/* Optimizar todos los botones para tablet */
+@media (max-width: 1024px) {
+  /* Botones principales del hero */
+  .new-hero .btn-primary,
+  .new-hero .btn-secondary {
+    transition: all 0.2s ease !important;
+    -webkit-tap-highlight-color: rgba(212, 175, 55, 0.3) !important;
+    touch-action: manipulation !important;
+  }
+  
+  .new-hero .btn-primary:active {
+    background: #C9A55F !important;
+    transform: scale(0.98) !important;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4) !important;
+  }
+  
+  .new-hero .btn-secondary:active {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(0.98) !important;
+    border-color: #D4AF37 !important;
+    color: #D4AF37 !important;
+  }
+  
+  /* Botones de navegación */
+  .navbar-menu a {
+    transition: all 0.2s ease !important;
+    -webkit-tap-highlight-color: rgba(212, 175, 55, 0.2) !important;
+    touch-action: manipulation !important;
+  }
+  
+  .navbar-menu a.contactanos:active {
+    background: #C9A55F !important;
+    transform: scale(0.98) !important;
+  }
+  
+  /* Botones de proyectos */
+  .btn-split.primary:active {
+    background: #C9A55F !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .btn-icon:active {
+    border-color: #D4AF37 !important;
+    color: #D4AF37 !important;
+    transform: scale(0.95) !important;
+  }
+  
+  /* Botones elegantes */
+  .btn-elegant:active {
+    background: linear-gradient(135deg, #C9A55F 0%, #E4C85C 100%) !important;
+    transform: scale(0.98) !important;
+  }
+  
+  /* Botones de modal */
+  .close-modal-btn:active {
+    color: #D4AF37 !important;
+    transform: scale(0.9) !important;
+  }
+  
+  .back-to-projects-btn:active {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: #D4AF37 !important;
+    transform: translateX(-2px) scale(0.98) !important;
+  }
+  
+  /* Botón back to top */
+  .floating-back-to-top:active {
+    background: #C9A55F !important;
+    transform: scale(0.95) !important;
+  }
+  
+  /* Botones de slider */
+  .slider-dot:active {
+    background: #D4AF37 !important;
+    transform: scale(1.2) !important;
+  }
+  
+  /* Mejorar área táctil de elementos pequeños */
+  .navbar-menu a,
+  .btn-icon,
+  .close-modal-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Desactivar selección de texto en botones */
+  .btn-primary,
+  .btn-secondary,
+  .btn-split,
+  .btn-elegant,
+  .navbar-menu a {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+}
+
+/* ============== TABLET HORIZONTAL (1025px-1439px) ============== */
+/* Detecta tablets por orientación y características táctiles */
+/* CONTACTANOS - Solo título en una línea para iPad horizontal */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+  .premium-contact-section .contact-title {
+    font-size: 28px !important;
+    white-space: nowrap !important;
+  }
+  
+  /* CONTACTANOS - Mantener formulario en su posición original */
+  .premium-contact-section .contact-form {
+    position: absolute !important;
+    right: 5px !important;
+    top: -35px !important;
+    min-width: 540px !important;
+  }
+  
+  /* CONTACTANOS - Mover información más a la izquierda */
+  .premium-contact-section .contact-info-side {
+    transform: translateX(-40px) !important;
+  }
+  
+  /* HERO SECTION - Solo párrafo de abajo para tablet horizontal */
+  .new-hero .new-hero-sub-default { 
+    display: none !important; 
+  }
+  
+  .new-hero .new-hero-sub-tablet-horizontal { 
+    display: block !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    padding: 0 8px !important;
+    max-width: 70ch !important;
+    margin: 0 auto 32px auto !important;
+    color: rgba(255,255,255,.9) !important;
+  }
+  
+  /* TOUCH HOVER - Efectos táctiles para iPad horizontal */
+  .timeline-card.touch-active {
+    transform: translateY(-8px) scale(1.03) !important;
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25) !important;
+  }
+  
+  .timeline-icon.touch-active {
+    transform: translateX(-50%) scale(1.15) !important;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5) !important;
+  }
+  
+  .btn-split.primary.touch-active {
+    background: #E4C85C !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(212,175,55,.35) !important;
+  }
+  
+  .btn-icon.touch-active {
+    border-color: #D4AF37 !important;
+    color: #D4AF37 !important;
+    transform: translateY(-2px) !important;
+  }
+  
+  .btn-form.touch-active {
+    background: #E4C85C !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4) !important;
+  }
+  
+  .contact-icon.touch-active {
+    background: #D4AF37 !important;
+  }
+  
+  .contact-icon.touch-active svg {
+    fill: #181818 !important;
+  }
+  
+  .social-icon.touch-active {
+    background: #D4AF37 !important;
+    color: #181818 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
+  }
+  
+  .service-card.touch-active {
+    transform: scale(1.02) !important;
+  }
+  
+  .split-card.touch-active {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+  }
+  
+  .media-card.touch-active {
+    transform: translateY(-6px) scale(1.01) !important;
+    box-shadow: 0 30px 60px rgba(0,0,0,.45) !important;
+    filter: saturate(1.05) !important;
+  }
+  
+  /* FOOTER - Ajustar posición en iPad horizontal */
+  .footer-col:nth-child(1) {
+    transform: translateX(20px) !important;
+  }
+  
+  .footer-col:nth-child(2) {
+    transform: translateX(15px) !important;
+  }
+  
+  .footer-logo {
+    transform: translateX(0) !important;
+  }
+  
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+  /* TOUCH HOVER - Efectos táctiles para iPad horizontal */
+  .timeline-card.touch-active {
+    transform: translateY(-8px) scale(1.03) !important;
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25) !important;
+  }
+  
+  .timeline-icon.touch-active {
+    transform: translateX(-50%) scale(1.15) !important;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5) !important;
+  }
+  
+  .btn-split.primary.touch-active {
+    background: #E4C85C !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(212,175,55,.35) !important;
+  }
+  
+  .btn-icon.touch-active {
+    border-color: #D4AF37 !important;
+    color: #D4AF37 !important;
+    transform: translateY(-2px) !important;
+  }
+  
+  .btn-form.touch-active {
+    background: #E4C85C !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4) !important;
+  }
+  
+  .contact-icon.touch-active {
+    background: #D4AF37 !important;
+  }
+  
+  .contact-icon.touch-active svg {
+    fill: #181818 !important;
+  }
+  
+  .social-icon.touch-active {
+    background: #D4AF37 !important;
+    color: #181818 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
+  }
+  
+  .service-card.touch-active {
+    transform: scale(1.02) !important;
+  }
+  
+  .split-card.touch-active {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+  }
+  
+  .media-card.touch-active {
+    transform: translateY(-6px) scale(1.01) !important;
+    box-shadow: 0 30px 60px rgba(0,0,0,.45) !important;
+    filter: saturate(1.05) !important;
+  }
+  
+  /* NEW HERO - Video más claro en tablet horizontal */
+  .new-hero { --overlay: rgba(0,0,0,.5) !important; }
+
+  /* NEW HERO - Texto en 2 líneas para tablet horizontal */
+  .new-hero .new-hero-title { font-size: 4.1rem !important; }
+  .new-hero .new-hero-title .title-mobile { display: none !important; }
+  .new-hero .new-hero-title .title-desktop { display: inline !important; }
+  .new-hero .new-hero-title .line-1 { transform: translateX(-200px) !important; }
+  
+  .new-hero .new-hero-container { max-width: 32rem !important; }
+  
+  /* TRANSICIONES Y ANIMACIONES PARA TABLET HORIZONTAL */
+  .new-hero .btn-primary,
+  .new-hero .btn-secondary {
+    transition: transform .3s ease, background-color .3s ease, color .3s ease, border-color .3s ease !important;
+    will-change: transform !important;
+  }
+  
+  .new-hero .btn-primary:hover,
+  .new-hero .btn-primary:focus-visible {
+    background: var(--gold-hover) !important;
+    transform: scale(1.05) !important;
+  }
+  
+  .new-hero .btn-secondary:hover,
+  .new-hero .btn-secondary:focus-visible {
+    background: var(--gold) !important;
+    color: #121212 !important;
+    transform: scale(1.05) !important;
+    border-color: var(--gold) !important;
+  }
+  
+  .btn-form {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-form:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3) !important;
+  }
+  
+  .btn-split {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-split:hover {
+    transform: translateY(-2px) !important;
+  }
+  
+  .btn-icon {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-icon:hover {
+    transform: translateY(-2px) !important;
+  }
+  
+  .social-icon {
+    transition: all 0.3s ease !important;
+  }
+  
+  .social-icon:hover {
+    background: #D4AF37 !important;
+    color: #181818 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
+  }
+  
+  .contact-icon {
+    transition: background-color 0.3s ease !important;
+  }
+  
+  .contact-icon:hover {
+    background: #D4AF37 !important;
+  }
+  
+  .contact-icon svg {
+    transition: fill 0.3s ease !important;
+  }
+  
+  .contact-icon:hover svg {
+    fill: #181818 !important;
+  }
+  
+  /* ANIMACIONES DE ENTRADA PARA TABLET */
+  .new-hero .anim-title,
+  .new-hero .anim-sub,
+  .new-hero .anim-ctas {
+    animation: new-fadeInUp .8s ease-out both !important;
+  }
+  
+  .new-hero .anim-title {
+    animation-delay: .1s !important;
+  }
+  
+  .new-hero .anim-sub {
+    animation-delay: .3s !important;
+  }
+  
+  .new-hero .anim-ctas {
+    animation-delay: .5s !important;
+  }
+  
+  @keyframes new-fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  /* NEW HERO - Mover contenido hacia arriba */
+  .new-hero .new-hero-container { 
+    padding-top: 10px !important; 
+    padding-bottom: 60px !important; 
+  }
+  
+  /* NEW HERO - Subir angle down en tablet horizontal */
+  .new-hero .scroll-indicator { 
+    bottom: 130px !important;
+    left: 50% !important;
+  }
+
+  /* NEW HERO - Mover logo más a la izquierda en tablet horizontal */
+  .navbar-logo {
+    transform: translateX(-25px) !important;
+  }
+
+  /* PREMIUM CONTACT - Separar más la info del formulario en tablet horizontal */
+  .premium-contact-container .contact-form {
+    margin-left: 60px !important;
+    padding: 30px !important;
+  }
+
+  /* PREMIUM CONTACT - Mantener título como en desktop */
+  .premium-contact-section .contact-info-side .contact-title {
+    font-size: 38px !important;
+  }
+
+  /* HERO BOTONES - Transiciones suaves como en desktop */
+  .new-hero .btn-primary,
+  .new-hero .btn-secondary {
+    transition: transform .3s ease, background-color .3s ease, color .3s ease, border-color .3s ease !important;
+    will-change: transform !important;
+  }
+  
+  .new-hero .btn-primary:hover,
+  .new-hero .btn-primary:focus-visible {
+    background: var(--gold-hover) !important;
+    transform: scale(1.05) !important;
+  }
+  
+  .new-hero .btn-secondary:hover,
+  .new-hero .btn-secondary:focus-visible {
+    background: var(--gold) !important;
+    color: #121212 !important;
+    transform: scale(1.05) !important;
+    border-color: var(--gold) !important;
+  }
+  
+  /* BOTONES ADICIONALES - Transiciones suaves para tablet horizontal */
+  .btn-form {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-form:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3) !important;
+  }
+  
+  .btn-split {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-split:hover {
+    transform: translateY(-2px) !important;
+  }
+  
+  .btn-icon {
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-icon:hover {
+    transform: translateY(-2px) !important;
+  }
+
+  /* NAVBAR - Menú hamburguesa para tablet horizontal */
+  .hamburger-btn { 
+    display: block !important; 
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 1001 !important;
+  }
+  .navbar-menu { display: none !important; }
+  .mobile-menu { 
+    display: flex !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  .mobile-menu.active { 
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* FOOTER - Ajustar posición en iPad horizontal */
+  .footer-col:nth-child(1) {
+    transform: translateX(20px) !important;
+  }
+  
+  .footer-col:nth-child(2) {
+    transform: translateX(15px) !important;
+  }
+  
+  .footer-logo {
+    transform: translateX(0) !important;
+  }
+}
+
+/* CONTACTANOS - Quitar decoración de enlaces para iPad/tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact-icon.contact-link {
+    text-decoration: none !important;
+  }
+  
+  .contact-icon.contact-link:hover {
+    text-decoration: none !important;
+  }
+  
+  .contact-icon.contact-link a {
+    text-decoration: none !important;
+  }
+  
+  .contact-icon.contact-link a:hover {
+    text-decoration: none !important;
+  }
+  
+  /* GOOGLE CHROME - Quitar decoración específica para teléfono y email */
+  a[href^="tel:"],
+  a[href^="tel:"] *,
+  a[href^="tel:"]:before,
+  a[href^="tel:"]:after {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-decoration-color: transparent !important;
+    border-bottom: none !important;
+    border-bottom-width: 0 !important;
+    border-bottom-style: none !important;
+    outline: none !important;
+  }
+  
+  a[href^="tel:"]:hover,
+  a[href^="tel:"]:focus,
+  a[href^="tel:"]:active,
+  a[href^="tel:"]:visited {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    border-bottom: none !important;
+  }
+  
+  a[href^="mailto:"],
+  a[href^="mailto:"] *,
+  a[href^="mailto:"]:before,
+  a[href^="mailto:"]:after {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-decoration-color: transparent !important;
+    border-bottom: none !important;
+    border-bottom-width: 0 !important;
+    border-bottom-style: none !important;
+    outline: none !important;
+  }
+  
+  a[href^="mailto:"]:hover,
+  a[href^="mailto:"]:focus,
+  a[href^="mailto:"]:active,
+  a[href^="mailto:"]:visited {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    border-bottom: none !important;
+  }
+  
+  /* Asegurar que los enlaces dentro de contact-icon no tengan decoración */
+  .contact-icon a,
+  .contact-icon a[href^="tel:"],
+  .contact-icon a[href^="mailto:"],
+  .contact-icon a * {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    border-bottom: none !important;
+    border-bottom-width: 0 !important;
+    border-bottom-style: none !important;
+  }
+  
+  .contact-icon a:hover,
+  .contact-icon a:focus,
+  .contact-icon a:active,
+  .contact-icon a:visited,
+  .contact-icon a[href^="tel:"]:hover,
+  .contact-icon a[href^="mailto:"]:hover {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    border-bottom: none !important;
+  }
+  
+  /* Forzar sin decoración en todos los elementos de contacto */
+  .phone a,
+  .email a,
+  .phone,
+  .email {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    border-bottom: none !important;
+  }
+  
+  /* REGLAS ULTRA-ESPECÍFICAS PARA CHROME TABLET */
+  .premium-contact-section a[href^="tel:"],
+  .premium-contact-section a[href^="mailto:"],
+  .premium-contact-section .contact-icon a,
+  .premium-contact-section .phone a,
+  .premium-contact-section .email a {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-decoration-color: transparent !important;
+    border-bottom: none !important;
+    border-bottom-width: 0 !important;
+    border-bottom-style: none !important;
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background-image: none !important;
+  }
+  
+  /* Aplicar a todos los estados */
+  .premium-contact-section a[href^="tel:"]:hover,
+  .premium-contact-section a[href^="tel:"]:focus,
+  .premium-contact-section a[href^="tel:"]:active,
+  .premium-contact-section a[href^="tel:"]:visited,
+  .premium-contact-section a[href^="mailto:"]:hover,
+  .premium-contact-section a[href^="mailto:"]:focus,
+  .premium-contact-section a[href^="mailto:"]:active,
+  .premium-contact-section a[href^="mailto:"]:visited {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    text-decoration-line: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Regla final para cualquier elemento con texto de contacto */
+  .premium-contact-section * {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+  }
+  
+  .premium-contact-section a,
+  .premium-contact-section a * {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    border-bottom: none !important;
+  }
+}
+
+/* ============== LAPTOP/DESKTOP (1025px-1439px) ============== */
+/* Detecta laptops por hover y pointer fine */
+@media (min-width: 1025px) and (max-width: 1439px) and (hover: hover) and (pointer: fine) {
+  /* NEW HERO - Video más claro en laptop */
+  .new-hero { --overlay: rgba(0,0,0,.5) !important; }
+  
+  /* NAVBAR - Menú normal para laptop (sin cambios) */
+}
+
+/* ============== MODAL - MÓVILES PEQUEÑOS ============== */
+/* Modal - Cubrir 100% del height en móviles pequeños */
+@media (max-width: 768px) {
+  .project-modal {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+  
+  .project-modal-content {
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  
+  /* Prevenir scroll del body cuando el modal está activo */
+  .project-modal.active ~ body,
+  body:has(.project-modal.active) {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+}
+
+/* ============== HERO - MÓVILES MUY PEQUEÑOS ============== */
+/* Reducir tamaño de texto y botones solo en móviles muy pequeños */
+@media (max-width: 375px) {
+  .new-hero .new-hero-title {
+    font-size: 1.6rem !important;
+  }
+  
+  .new-hero .new-hero-sub {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Organización específica para móviles pequeños */
+  .new-hero .new-hero-sub-default {
+    max-width: 95% !important;
+    padding: 0 12px !important;
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+    margin: 0 auto 20px auto !important;
+  }
+  
+  .new-hero .btn-primary,
+  .new-hero .btn-secondary {
+    padding: 12px 20px !important;
+    font-size: 0.9rem !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+  }
+}
