@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Preload fuentes críticas para carga más rápida -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/librebaskerville/v14/kmKnZrc3Hgbbcjq75U4uslyuy4kn0pNeYc4VQ.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
     
     <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
     
@@ -150,10 +154,10 @@
     <script>window.tailwind=window.tailwind||{}; window.tailwind.config = { corePlugins: { preflight: false } };</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <div class="new-hero-media" aria-hidden="true">
-      <video id="newHeroVideo" autoplay muted loop playsinline>
-  <source src="Fotos/Caribbean.mp4" type="video/mp4">
-</video>
-</div>
+      <video id="newHeroVideo" autoplay muted loop playsinline preload="metadata">
+        <source src="Fotos/Caribbean.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="new-hero-overlay" aria-hidden="true"></div>
     <div class="new-hero-container">
       <div class="new-hero-inner">
@@ -1260,9 +1264,39 @@
   </div>
 </footer>
 
-  <script src="script.js"></script>
+  <script defer src="script.js"></script>
   
-  
+  <!-- Optimización de rendimiento para Android/Samsung -->
+  <script>
+  (function() {
+    // 1. Agregar aceleración GPU a elementos animados
+    const style = document.createElement('style');
+    style.textContent = `
+      .split-card, .timeline-card, .service-card, .btn-split, .btn-icon,
+      .media-card, .floating-back-to-top, .project-modal {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
+      }
+      @media (max-width: 768px) {
+        .timeline-card, .service-card { backdrop-filter: blur(5px) !important; }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // 2. Pausar video cuando no está visible (ahorro batería)
+    document.addEventListener('visibilitychange', function() {
+      const video = document.getElementById('newHeroVideo');
+      if (video) {
+        if (document.hidden) {
+          video.pause();
+        } else {
+          video.play();
+        }
+      }
+    });
+  })();
+  </script>
 
   <button id="floatingBackToTop" class="floating-back-to-top" aria-label="Back to top">
     <i class="fa-solid fa-chevron-up"></i>
@@ -1271,7 +1305,4 @@
   
 </body>
 </html>
-   
-  
-</body>
-</html>
+

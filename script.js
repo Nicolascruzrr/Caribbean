@@ -1,5 +1,3 @@
-// (removed) old hero entry animation for elements no longer present
-
 // Observer para animaciones de scroll
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
@@ -129,15 +127,23 @@ function smoothScrollTo(target) {
   requestAnimationFrame(animation);
 }
 
-// Navbar scroll appearance
+// Navbar scroll appearance - Optimizado con requestAnimationFrame
+let navbarTicking = false;
+const navbarEl = document.getElementById('navbar');
+
 window.addEventListener('scroll', function() {
-  const navbar = document.getElementById('navbar');
-  if (window.scrollY > 100) {
-    navbar.classList.add('navbar--visible');
-  } else {
-    navbar.classList.remove('navbar--visible');
+  if (!navbarTicking) {
+    window.requestAnimationFrame(function() {
+      if (window.scrollY > 100) {
+        navbarEl.classList.add('navbar--visible');
+      } else {
+        navbarEl.classList.remove('navbar--visible');
+      }
+      navbarTicking = false;
+    });
+    navbarTicking = true;
   }
-});
+}, { passive: true });
 
 // Smooth scroll para enlaces internos - TODOS LOS DISPOSITIVOS
 document.addEventListener('DOMContentLoaded', function() {
@@ -263,7 +269,6 @@ function updateWhatsAppLinkForProject(projectName) {
     const message = `Hola, me gustaria tener mas informacion sobre ${projectName}`;
     const encodedMessage = encodeURIComponent(message);
     requestInfoBtn.href = `https://wa.me/18098922298?text=${encodedMessage}`;
-    /* no-op log removed */
   }
 }
 
@@ -290,17 +295,33 @@ function openProjectModal(projectId) {
   if (slidesTrack) {
     slidesTrack.innerHTML = '';
     const images = (project.gallery && project.gallery.length) ? project.gallery : [project.image];
-    images.forEach((src) => {
+    images.forEach((src, idx) => {
       const slide = document.createElement('div');
       slide.className = 'slide';
       const img = document.createElement('img');
-      img.src = src;
+      // Lazy load todas excepto la primera imagen
+      if (idx === 0) {
+        img.src = src;
+      } else {
+        img.setAttribute('data-src', src);
+        img.style.opacity = '0';
+      }
       img.alt = project.title;
       slide.appendChild(img);
       slidesTrack.appendChild(slide);
     });
     
-    /* dotsContainer */
+    // Cargar imagen siguiente cuando se abre el modal
+    setTimeout(() => {
+      const nextImg = slidesTrack.querySelector('img[data-src]');
+      if (nextImg) {
+        nextImg.src = nextImg.getAttribute('data-src');
+        nextImg.removeAttribute('data-src');
+        nextImg.style.transition = 'opacity 0.3s ease';
+        nextImg.style.opacity = '1';
+      }
+    }, 300);
+    
     if (dotsContainer) {
       dotsContainer.innerHTML = '';
       images.forEach((_, idx) => {
@@ -336,18 +357,48 @@ function openProjectModal(projectId) {
 
 function updateSliderPosition() {
   if (!slidesTrack) return;
-  const offset = -currentSlideIndex * 100;
-  slidesTrack.style.transform = `translateX(${offset}%)`;
-  if (dotsContainer) {
-    const dots = dotsContainer.querySelectorAll('.slider-dot');
-    dots.forEach((d, i) => d.classList.toggle('active', i === currentSlideIndex));
-  }
+  // Usar requestAnimationFrame para smooth animation
+  window.requestAnimationFrame(() => {
+    const offset = -currentSlideIndex * 100;
+    slidesTrack.style.transform = `translate3d(${offset}%, 0, 0)`;
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.slider-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentSlideIndex));
+    }
+  });
 }
 
 function moveToSlide(index) {
   if (!slidesTrack) return;
   const total = slidesTrack.children.length;
   currentSlideIndex = Math.max(0, Math.min(index, total - 1));
+  
+  // Precargar imagen del slide actual si no está cargada
+  const currentSlide = slidesTrack.children[currentSlideIndex];
+  if (currentSlide) {
+    const img = currentSlide.querySelector('img[data-src]');
+    if (img) {
+      img.src = img.getAttribute('data-src');
+      img.removeAttribute('data-src');
+      img.style.transition = 'opacity 0.3s ease';
+      img.style.opacity = '1';
+    }
+  }
+  
+  // Precargar siguiente imagen
+  if (currentSlideIndex + 1 < total) {
+    const nextSlide = slidesTrack.children[currentSlideIndex + 1];
+    if (nextSlide) {
+      const nextImg = nextSlide.querySelector('img[data-src]');
+      if (nextImg) {
+        nextImg.src = nextImg.getAttribute('data-src');
+        nextImg.removeAttribute('data-src');
+        nextImg.style.transition = 'opacity 0.3s ease';
+        nextImg.style.opacity = '1';
+      }
+    }
+  }
+  
   updateSliderPosition();
 }
 
@@ -483,15 +534,9 @@ document.addEventListener('DOMContentLoaded', function() {
         moveToSlide(prevIndex);
       }
     }
-    // no reiniciar autoSlide tras interacción del usuario
   }, { passive: true });
 });
 
-// Botón "Solicitar Información" - El enlace se actualiza automáticamente en openProjectModal()
-document.addEventListener('DOMContentLoaded', function() {
-  const requestInfoBtn = document.getElementById('request-info-btn');
-  if (requestInfoBtn) { /* initialized */ }
-});
 
 // Formulario de contacto
 document.addEventListener('DOMContentLoaded', function() {
@@ -589,7 +634,6 @@ function initTimelineAdditionalFeatures() {
 function initTimeline() {
   initTimelineAnimations();
   initTimelineAdditionalFeatures();
-  /* timeline initialized */
 }
 
 // Ejecutar cuando el script se carga
@@ -656,8 +700,6 @@ function initNosotrosMobile() {
       this.style.transform = '';
     }, { passive: true });
   });
-
-  /* nosotros mobile initialized */
 }
 
 // Inicializar cuando el DOM esté listo
@@ -733,8 +775,6 @@ function initHamburgerMenu() {
       closeMenu();
     }
   });
-
-  /* hamburger initialized */
 }
 
 // Inicializar cuando el DOM esté listo
