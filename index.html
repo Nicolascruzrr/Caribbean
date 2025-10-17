@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Preload fuentes críticas para carga más rápida -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/librebaskerville/v14/kmKnZrc3Hgbbcjq75U4uslyuy4kn0pNeYc4VQ.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Google Fonts robusto (iOS-safe) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
@@ -105,7 +106,7 @@
 
   <!-- === PREMIUM HERO (REPLACES FIRST SLIDE) === -->
   <section id="premium-hero" role="banner" aria-label="Hero Caribeño" class="new-hero">
-    <script>(function(){try{var ua=navigator.userAgent;var isEdge=ua.indexOf('Edg/')>-1;var isOpera=ua.indexOf('OPR/')>-1||ua.indexOf('Opera')>-1;var isChrome=ua.indexOf('Chrome/')>-1&&!isEdge&&!isOpera;if(isChrome){document.documentElement.classList.add('is-chrome');}if(isEdge){document.documentElement.classList.add('is-edge');}}catch(e){}})();</script>
+    <script>(function(){try{var ua=navigator.userAgent;var isEdge=ua.indexOf('Edg/')>-1;var isOpera=ua.indexOf('OPR/')>-1||ua.indexOf('Opera')>-1;var isChrome=ua.indexOf('Chrome/')>-1&&!isEdge&&!isOpera;var isAndroid=/Android/i.test(ua);var isSamsung=/Samsung|SM-|Galaxy/i.test(ua);if(isChrome){document.documentElement.classList.add('is-chrome');}if(isEdge){document.documentElement.classList.add('is-edge');}if(isAndroid){document.documentElement.classList.add('is-android');}if(isSamsung){document.documentElement.classList.add('is-samsung');}}catch(e){}})();</script>
     <style>
       .new-hero { --gold:#D4AF37; --gold-hover:#C9A55F; --bg:#121212; --text:#ffffff; --overlay:rgba(0,0,0,.4); }
       .new-hero { position:relative; width:100%; min-height:100vh; background:var(--bg); color:var(--text); overflow:hidden; font-family:'Inter',system-ui,-apple-system,sans-serif; }
@@ -1294,8 +1295,17 @@
         -webkit-transform: translateZ(0);
         will-change: transform;
       }
+      /* Android: reducir efectos costosos en móvil */
       @media (max-width: 768px) {
-        .timeline-card, .service-card { backdrop-filter: blur(5px) !important; }
+        .is-android .timeline-card, .is-android .service-card { backdrop-filter: none !important; }
+        .is-android .timeline-card, .is-android .service-card { box-shadow: 0 8px 18px rgba(0,0,0,.25) !important; }
+        .is-android .btn-split, .is-android .btn-icon { transition: transform .2s ease, background-color .2s ease !important; }
+        .is-android .new-hero .new-hero-media video { filter: brightness(1.2) !important; }
+      }
+      /* Respeta usuarios que prefieren menos movimiento */
+      @media (prefers-reduced-motion: reduce) {
+        .anim-title, .anim-sub, .anim-ctas { animation: none !important; }
+        .btn-primary, .btn-secondary, .btn-split, .btn-icon { transition: none !important; }
       }
     `;
     document.head.appendChild(style);
@@ -1311,6 +1321,14 @@
         }
       }
     });
+
+    // 3. Suavizar scroll/paint en Android: evitar forced reflow en resize
+    let resizeTimer; window.addEventListener('resize', function(){
+      if (!document.documentElement.classList.contains('is-android')) return;
+      clearTimeout(resizeTimer); resizeTimer = setTimeout(function(){
+        // re-evaluar layout sin spamear eventos
+      }, 120);
+    }, { passive: true });
   })();
   </script>
 
