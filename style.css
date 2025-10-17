@@ -50,7 +50,7 @@ html, body {
     height: auto;
     overflow-x: hidden;
     background-color: #1b1b1b;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -123,7 +123,7 @@ img[loading="lazy"].loaded {
   display: inline-block;
   background: #D4AF37;
   color: #181818;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   letter-spacing: .5px;
   padding: 8px 14px;
@@ -133,7 +133,7 @@ img[loading="lazy"].loaded {
 
 .split-title,
 .split-content h2.split-title {
-  font-family: 'Libre Baskerville', serif !important;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif !important;
   font-weight: 700;
   font-size: clamp(32px, 5vw, 56px);
   margin: 10px 0 14px 0;
@@ -141,7 +141,7 @@ img[loading="lazy"].loaded {
 }
 
 .split-description {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: #cfcfcf;
   line-height: 1.7;
   max-width: 650px;
@@ -159,13 +159,13 @@ img[loading="lazy"].loaded {
   border-radius: 14px;
   text-align: center;
   padding: 18px 12px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 .stat-value {
   color: #D4AF37;
   font-size: 36px;
   font-weight: 800;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 .stat-label {
   color: #bdbdbd;
@@ -182,7 +182,7 @@ img[loading="lazy"].loaded {
   gap: 10px;
   padding: 14px 22px;
   border-radius: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   text-decoration: none;
   transition: all .25s ease;
@@ -244,7 +244,7 @@ img[loading="lazy"].loaded {
   color: #fff;
   padding: 10px 14px;
   border-radius: 12px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255,255,255,0.2);
@@ -486,7 +486,7 @@ img[loading="lazy"].loaded {
 }
 
 .timeline-title {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
     font-size: 3.5rem;
     color: #fff;
     margin: 0 2rem;
@@ -498,7 +498,7 @@ img[loading="lazy"].loaded {
 .timeline-description {
     color: #c4c3c3;
     font-size: 1.2rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     max-width: 800px;
     margin: 2rem auto 0;
@@ -615,7 +615,7 @@ img[loading="lazy"].loaded {
 }
 
 .card-title {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -654,7 +654,7 @@ img[loading="lazy"].loaded {
 }
 
 .card-description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.95rem; 
     line-height: 1.5; 
     margin: 0;
@@ -1005,7 +1005,7 @@ body.hide-scrollbar {
     min-height: 100vh;
     background: #1b1b1b;
     color: #ffffff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .project-modal-header {
@@ -1082,7 +1082,7 @@ body.hide-scrollbar {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-bottom: 24px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -1108,7 +1108,7 @@ body.hide-scrollbar {
 }
 
 .project-title {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
     font-size: clamp(2.5rem, 6vw, 3.5rem);
     font-weight: 700;
     background: linear-gradient(135deg, #ffffff 0%, #9ca3af 100%);
@@ -1249,7 +1249,7 @@ body.hide-scrollbar {
 
 .details-column h2,
 .features-column h2 {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: #ffffff;
@@ -1356,7 +1356,7 @@ body.hide-scrollbar {
     border: none;
     padding: 12px 24px;
     border-radius: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -1473,7 +1473,7 @@ a.btn-elegant:visited {
 
 .notification-content h3 {
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   margin: 0 0 8px 0;
@@ -1481,7 +1481,7 @@ a.btn-elegant:visited {
 
 .notification-content p {
   color: #9ca3af;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
   margin: 0;
   line-height: 1.4;
@@ -1520,7 +1520,7 @@ a.btn-elegant:visited {
 .footer { 
   background: #181818;
   color: #bdbdbd;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   border-top: 1px solid #232323;
 }
 
@@ -1895,7 +1895,7 @@ a.btn-elegant:visited {
   color: #fff;
   text-decoration: none;
   font-size: 15px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
   position: relative;
   padding: 8px 18px;
@@ -1964,7 +1964,7 @@ a.btn-elegant:visited {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 300;
     transition: color 0.3s ease;
   }
@@ -1986,7 +1986,7 @@ a.btn-elegant:visited {
   .navbar-menu.active .mobile-nav a {
     color: #ffffff;
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     font-size: 20px;
     letter-spacing: 0.5px;
@@ -2029,7 +2029,7 @@ a.btn-elegant:visited {
     border: none;
     border-radius: 12px;
     padding: 16px 35px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
@@ -2726,7 +2726,7 @@ a.btn-elegant:visited {
 }
 
 .nosotros-description {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
   color: var(--nosotros-text-secondary);
   line-height: 1.6;
@@ -2807,7 +2807,7 @@ a.btn-elegant:visited {
 
 /* Descripciones de servicios */
 .service-description {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.9rem;
   color: var(--nosotros-text-secondary);
   line-height: 1.5;
@@ -2844,7 +2844,7 @@ a.btn-elegant:visited {
 }
 
 .mission-description {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.95rem;
   color: var(--nosotros-text-secondary);
   line-height: 1.6;
@@ -3070,7 +3070,7 @@ a.btn-elegant:visited {
 .mobile-link {
   color: #ffffff;
   text-decoration: none;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 24px;
   font-weight: 500;
   padding: 15px 30px;
