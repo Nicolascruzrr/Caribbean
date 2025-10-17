@@ -462,10 +462,6 @@ img[loading="lazy"].loaded {
   }
 }
 
-
-
-
-
 .timeline-container {
     width: 100%;
     max-width: 1000px;
@@ -1190,6 +1186,7 @@ body.hide-scrollbar {
   width: 100%; 
   height: 100%; 
   object-fit: cover;
+  border-radius: 16px;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   backface-visibility: hidden;
