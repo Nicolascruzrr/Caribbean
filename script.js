@@ -911,8 +911,8 @@ function initTouchBlurInputs() {
   
   // Escuchar toques en el documento
   document.addEventListener('touchstart', function(e) {
-    // Verificar si el touch NO es en un input, textarea, select o label
-    const isFormElement = e.target.closest('input, textarea, select, label, .contact-form, .premium-contact-section');
+    // Verificar si el touch NO es en un input, textarea, select, label o botón
+    const isFormElement = e.target.closest('input, textarea, select, label, button, .contact-form, .premium-contact-section, .btn-form, .btn-split, .btn-icon');
     
     // Si tocamos fuera de elementos de formulario, remover focus de todos los inputs
     if (!isFormElement) {
@@ -925,9 +925,34 @@ function initTouchBlurInputs() {
         activeElement.tagName === 'SELECT'
       )) {
         activeElement.blur();
+        
+        // Forzar el cierre del teclado virtual en algunos dispositivos
+        if (activeElement.setAttribute) {
+          activeElement.setAttribute('readonly', 'readonly');
+          setTimeout(() => {
+            activeElement.removeAttribute('readonly');
+          }, 100);
+        }
       }
     }
   }, { passive: true });
+  
+  // También escuchar clicks para dispositivos híbridos
+  document.addEventListener('click', function(e) {
+    const isFormElement = e.target.closest('input, textarea, select, label, button, .contact-form, .premium-contact-section, .btn-form, .btn-split, .btn-icon');
+    
+    if (!isFormElement) {
+      const activeElement = document.activeElement;
+      
+      if (activeElement && (
+        activeElement.tagName === 'INPUT' || 
+        activeElement.tagName === 'TEXTAREA' || 
+        activeElement.tagName === 'SELECT'
+      )) {
+        activeElement.blur();
+      }
+    }
+  });
 }
 
 // Inicializar touch blur para inputs cuando el DOM esté listo
