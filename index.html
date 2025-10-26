@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Preload solo recursos críticos para evitar congelamiento -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
     
     <!-- Google Fonts robusto (iOS-safe) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,7 +121,7 @@
 <nav class="navbar" id="navbar">
   <div class="navbar-logo">
     <a href="#" onclick="window.location.href = window.location.pathname; return false;">
-      <img id="navbar-logo-img" src="Fotos/Caribbeanlogo.png" alt="Caribbean Logo">
+      <img id="navbar-logo-img" src="Fotos/Caribbeanlogo.png" alt="Caribbean Logo" onerror="this.src='Fotos/CBC Logo.png';">
     </a>
   </div>
   <div class="navbar-menu">
@@ -202,8 +211,13 @@
     <script>window.tailwind=window.tailwind||{}; window.tailwind.config = { corePlugins: { preflight: false } };</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <div class="new-hero-media" aria-hidden="true">
-      <video id="newHeroVideo" autoplay muted loop playsinline preload="metadata">
+      <video id="newHeroVideo" autoplay muted loop playsinline preload="metadata" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');">
         <source src="Fotos/Caribbean.mp4" type="video/mp4">
+        <source src="Fotos/Caribbean.mp4" type="video/mp4">
+        <!-- Fallback para navegadores que no soportan video -->
+        <div class="video-fallback" style="display: none;">
+          <img src="Fotos/Caribbean View.png" alt="Caribbean View" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
       </video>
     </div>
     <div class="new-hero-overlay" aria-hidden="true"></div>
@@ -233,7 +247,59 @@
         <path d="M12 16a1 1 0 0 1-.707-.293l-6-6a1 1 0 1 1 1.414-1.414L12 13.586l5.293-5.293a1 1 0 0 1 1.414 1.414l-6 6A1 1 0 0 1 12 16z"/>
       </svg>
     </button>
-    <script>(function(){const root=document.getElementById('premium-hero');const video=document.getElementById('newHeroVideo');const activateFallback=()=>{root.querySelector('.new-hero-media')?.classList.add('fallback');};if(video){video.addEventListener('error',activateFallback,{passive:true});let t=setTimeout(activateFallback,3500);video.addEventListener('canplay',()=>{clearTimeout(t);},{once:true});}else{activateFallback();}const setAria=(el,l)=>{if(el&&!el.getAttribute('aria-label'))el.setAttribute('aria-label',l);};setAria(root.querySelector('.btn-primary'),'Ver Proyectos');setAria(root.querySelector('.btn-secondary'),'Contáctanos');})();</script>
+    <script>
+    (function(){
+      const root = document.getElementById('premium-hero');
+      const video = document.getElementById('newHeroVideo');
+      
+      // Función para activar fallback
+      const activateFallback = () => {
+        const mediaContainer = root.querySelector('.new-hero-media');
+        if (mediaContainer) {
+          mediaContainer.classList.add('fallback');
+          // Mostrar imagen de fallback si existe
+          const fallbackImg = mediaContainer.querySelector('.video-fallback');
+          if (fallbackImg) {
+            fallbackImg.style.display = 'block';
+          }
+        }
+      };
+      
+      // Manejo de errores del video
+      if (video) {
+        video.addEventListener('error', function(e) {
+          console.log('Error cargando video:', e);
+          activateFallback();
+        }, {passive: true});
+        
+        // Timeout de seguridad
+        let timeout = setTimeout(activateFallback, 5000);
+        
+        video.addEventListener('canplay', function() {
+          clearTimeout(timeout);
+        }, {once: true});
+        
+        video.addEventListener('loadstart', function() {
+          console.log('Video iniciando carga...');
+        });
+        
+        video.addEventListener('loadeddata', function() {
+          console.log('Video cargado exitosamente');
+        });
+      } else {
+        activateFallback();
+      }
+      
+      // Configurar aria-labels
+      const setAria = (el, label) => {
+        if (el && !el.getAttribute('aria-label')) {
+          el.setAttribute('aria-label', label);
+        }
+      };
+      setAria(root.querySelector('.btn-primary'), 'Ver Proyectos');
+      setAria(root.querySelector('.btn-secondary'), 'Contáctanos');
+    })();
+    </script>
   </section>
 
 <!-- SECCIÓN NOSOTROS - DISEÑO MÓVIL -->
@@ -1280,7 +1346,7 @@
 <footer class="footer">
   <div class="footer-main">
     <div class="footer-col company">
-      <img src="Fotos/Caribbeanlogo.png" alt="Caribbean Logo" class="footer-logo">
+      <img src="Fotos/Caribbeanlogo.png" alt="Caribbean Logo" class="footer-logo" onerror="this.src='Fotos/CBC Logo.png';">
       <p class="desktop-version">
         Construyendo el futuro, un proyecto a la vez. Caribbean Buildings Constructions,<br>
         expertos en transformar sueños en realidades arquitectónicas.
@@ -1319,6 +1385,52 @@
   </div>
 </footer>
 
+  <!-- Script anti-congelamiento -->
+  <script>
+    // Prevenir congelamiento de la página
+    let isPageResponsive = true;
+    
+    // Detectar si la página se está congelando
+    function checkPageResponsiveness() {
+      const start = Date.now();
+      setTimeout(() => {
+        const elapsed = Date.now() - start;
+        if (elapsed > 100) { // Si pasan más de 100ms, algo está bloqueando
+          console.log('Página lenta detectada, optimizando...');
+          // Reducir animaciones si es necesario
+          document.body.style.animationPlayState = 'paused';
+          setTimeout(() => {
+            document.body.style.animationPlayState = 'running';
+          }, 1000);
+        }
+      }, 0);
+    }
+    
+    // Verificar responsividad cada 5 segundos
+    setInterval(checkPageResponsiveness, 5000);
+    
+    // Manejo básico de errores sin afectar diseño
+    window.addEventListener('error', function(e) {
+      // Solo logear errores, no mostrar al usuario
+      console.log('Error manejado:', e.type);
+    });
+  </script>
+  
+  <!-- Registrar Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('ServiceWorker registrado exitosamente');
+          })
+          .catch(function(err) {
+            console.log('Error registrando ServiceWorker:', err);
+          });
+      });
+    }
+  </script>
+  
   <script defer src="script.js"></script>
   
   <!-- Optimización de rendimiento para Android/Samsung -->
