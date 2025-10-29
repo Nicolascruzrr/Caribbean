@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <link rel="preload" href="style.css" as="style">
     <link rel="preload" href="script.js" as="script">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -142,10 +141,19 @@
         object-fit:cover; 
         display:block; 
         filter: brightness(1.3);
+        pointer-events:none; /* prevent any tap from triggering native controls */
+        -webkit-appearance:none; appearance:none; background:transparent;
         will-change: transform;
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
       }
+      /* Hide any mobile play overlays/controls (Android Chrome, iOS Safari) */
+      .new-hero .new-hero-media video::-webkit-media-controls { display:none !important; }
+      .new-hero .new-hero-media video::-webkit-media-controls-enclosure { display:none !important; }
+      .new-hero .new-hero-media video::-webkit-media-controls-panel { display:none !important; }
+      .new-hero .new-hero-media video::-webkit-media-controls-play-button { display:none !important; }
+      .new-hero .new-hero-media video::-webkit-media-controls-overlay-play-button { display:none !important; }
+      .new-hero .new-hero-media video::-webkit-media-controls-start-playback-button { display:none !important; }
       .new-hero .new-hero-media.fallback { background: radial-gradient(1200px 600px at 50% 20%, rgba(212,175,55,.25), transparent 60%), linear-gradient(180deg, #0f0f0f 0%, #121212 60%, #0b0b0b 100%); }
       .new-hero .new-hero-media.fallback video { display:none; }
       .new-hero .new-hero-overlay { position:absolute; inset:0; background:var(--overlay); z-index:1; }
@@ -188,10 +196,11 @@
       @media (min-width:1025px) and (max-width:1439px){ .is-chrome .new-hero .new-hero-title .line-1 { transform: translateX(-110px); } }
       @media (min-width:1440px){ .is-chrome .new-hero .new-hero-title .line-1 { transform: translateX(-110px); } }
     </style>
+    
     <script>window.tailwind=window.tailwind||{}; window.tailwind.config = { corePlugins: { preflight: false } };</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <div class="new-hero-media" aria-hidden="true">
-      <video id="newHeroVideo" autoplay muted loop playsinline preload="metadata" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');">
+      <video id="newHeroVideo" autoplay muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true" controlslist="nodownload noplaybackrate nofullscreen noremoteplayback" disablepictureinpicture disableremoteplayback onerror="this.style.display='none'; this.parentElement.classList.add('fallback');">
         <source src="Fotos/Caribbean.mp4" type="video/mp4">
       </video>
     </div>
@@ -236,9 +245,18 @@
         video.addEventListener('error', activateFallback, {passive: true});
         let timeout = setTimeout(activateFallback, 5000);
         
+        // Try to ensure autoplay starts so Chrome Android doesn't render the big play overlay
+        const tryPlay = function(){
+          try { video.muted = true; video.play().catch(function(){ /* ignore */ }); } catch(e) { /* ignore */ }
+        };
         video.addEventListener('canplay', function() {
           clearTimeout(timeout);
+          tryPlay();
         }, {once: true});
+        // Fallback: kick playback on first user interaction (in case browser paused it)
+        const resumeOnInteraction = () => { tryPlay(); window.removeEventListener('touchstart', resumeOnInteraction, { capture:false }); window.removeEventListener('click', resumeOnInteraction, { capture:false }); };
+        window.addEventListener('touchstart', resumeOnInteraction, { passive:true });
+        window.addEventListener('click', resumeOnInteraction, { passive:true });
       } else {
         activateFallback();
       }
@@ -530,8 +548,7 @@
 
 <section id="premium-contact" class="premium-contact-section">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    
     
     .premium-contact-section {
       background: #0e0e0d;
@@ -1230,6 +1247,7 @@
     setInterval(checkPageResponsiveness, 5000);
     window.addEventListener('error', function(e) {});
   </script>
+
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
