@@ -411,7 +411,7 @@ function nextSlide() {
 function startAutoSlide() {
   stopAutoSlide();
   if (!userInteractedWithSlider) {
-    autoSlideTimer = setInterval(nextSlide, 4000);
+    autoSlideTimer = setInterval(nextSlide, 3000);
   }
 }
 

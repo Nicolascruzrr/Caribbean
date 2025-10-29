@@ -1,8 +1,5 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-/* Preload fonts for better performance on mobile */
 @font-face {
   font-family: 'Libre Baskerville';
   font-style: normal;
@@ -41,7 +38,7 @@
   font-weight: 700;
   font-display: swap;
   src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff2') format('woff2');
-}  
+}
 
 html, body {
     margin: 0;
@@ -55,20 +52,6 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
-
-/* Optimización de rendimiento - Lazy loading para imágenes */
-img {
-    transition: opacity 0.3s ease;
-}
-
-img[loading="lazy"] {
-    opacity: 0;
-}
-
-img[loading="lazy"].loaded {
-    opacity: 1;
-}
-
 
 .split-projects {
   position: relative;
@@ -280,8 +263,6 @@ img[loading="lazy"].loaded {
   .split-card.reverse .split-media { order: 2; }
   .media-card { height: 280px; }
 }
-
-/* Ajuste específico para todas las versiones de tablet - imagen completa */
 @media (min-width: 481px) and (max-width: 1024px) {
   .media-card { 
     height: 400px; 
@@ -470,7 +451,6 @@ img[loading="lazy"].loaded {
     margin: 0 auto;
 }
 
-
 .timeline-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -504,7 +484,6 @@ img[loading="lazy"].loaded {
     margin: 2rem auto 0;
 }
 
-
 .timeline-wrapper {
     position: relative;
     max-width: 1000px;
@@ -522,7 +501,6 @@ img[loading="lazy"].loaded {
     transform: translateX(-50%);
     z-index: -1; 
 }
-
 
 .timeline-item {
     position: relative;
@@ -568,7 +546,6 @@ img[loading="lazy"].loaded {
     z-index: 3;
 }
 
-
 .timeline-card {
     width: 45%;
     min-width: 320px; 
@@ -591,7 +568,6 @@ img[loading="lazy"].loaded {
     border-color: rgba(212, 175, 55, 0.3);
 }
 
-
 .timeline-card.left {
     margin-right: auto !important;
     margin-left: 0 !important;
@@ -604,7 +580,6 @@ img[loading="lazy"].loaded {
     margin-right: 0 !important;
     text-align: left !important;
 }
-
 
 @media (min-width: 769px) {
     .timeline-card.right {
@@ -693,9 +668,6 @@ img[loading="lazy"].loaded {
 .timeline-card.right .card-description:nth-of-type(5) {
     color: #8b8888;
 }
-
-
-/* Tablet pequeña (635px-780px) */
 @media (max-width: 780px) and (min-width: 635px) {
     .timeline-line {
         height: 195vh;
@@ -865,8 +837,6 @@ img[loading="lazy"].loaded {
         position: relative !important;
     }
 }
-
-/* Regla específica para iPhone con selector ultra específico */
 @supports (-webkit-touch-callout: none) {
     @media (max-width: 768px) {
         .second-page .timeline-container .timeline-wrapper .timeline-line {
@@ -990,8 +960,6 @@ img[loading="lazy"].loaded {
 .project-modal.active {
     display: block;
 }
-
-/* Ocultar scrollbar usando position fixed - sin afectar comportamiento */
 body.hide-scrollbar {
     position: fixed;
     width: 100%;
@@ -1366,8 +1334,6 @@ body.hide-scrollbar {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-
-/* Asegurar que el enlace se vea como botón */
 a.btn-elegant {
     color: #000000;
     text-decoration: none;
@@ -1508,14 +1474,11 @@ a.btn-elegant:visited {
   width: 100%;
 }
 
-
 .optional {
   color: #888;
   font-weight: normal;
   font-size: 0.9em;
 }
-
-
 
 .footer { 
   background: #181818;
@@ -1551,7 +1514,6 @@ a.btn-elegant:visited {
   min-width: 180px;
   margin-bottom: 32px;
 }
-
 
 .footer-main .footer-col:nth-of-type(2),
 .footer-main .footer-col:nth-of-type(3) {
@@ -1638,7 +1600,6 @@ a.btn-elegant:visited {
 }
 
 .floating-back-to-top {
-  
   position: fixed;
   bottom: 15px; 
   right: 15px;  
@@ -1680,13 +1641,11 @@ a.btn-elegant:visited {
   visibility: hidden;
 }
 
-
 .floating-back-to-top.visible {
   opacity: 1;
   transform: scale(1);
   visibility: visible;
 }
-
 
 .floating-back-to-top:hover {
   background: #C9A55F; 
@@ -1696,12 +1655,10 @@ a.btn-elegant:visited {
     0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-
 .floating-back-to-top:active {
   transform: scale(0.95);
   transition: transform 150ms ease;
 }
-
 
 .floating-back-to-top i {
   font-size: 1.125rem; 
@@ -1709,11 +1666,9 @@ a.btn-elegant:visited {
   transition: transform 300ms ease;
 }
 
-
 .floating-back-to-top:hover i {
   transform: translateY(-1px);
 }
-
 
 .floating-back-to-top:focus {
   box-shadow: 
@@ -1721,7 +1676,6 @@ a.btn-elegant:visited {
     0 2px 6px rgba(0, 0, 0, 0.15),
     0 0 0 3px rgba(212, 175, 55, 0.3);
 }
-
 
 @media (max-width: 768px) {
   .floating-back-to-top {
@@ -1835,8 +1789,6 @@ a.btn-elegant:visited {
     left: 60px;
     top: 35px
 }
-
-
 
 .navbar {
   position: fixed;
@@ -2076,12 +2028,6 @@ a.btn-elegant:visited {
     top: 100px;
   }
 }
-
-/* ======================
-   TIMELINE SECTION - NOSOTROS
-   ====================== */
-
-/* Variables CSS para el timeline */
 :root {
   /* Colores específicos del timeline */
   --timeline-bg-start: hsl(0, 0%, 12.9%);          /* #212120 */
@@ -2098,8 +2044,6 @@ a.btn-elegant:visited {
   --font-serif: 'Libre Baskerville', serif;
   --font-sans: 'Inter', sans-serif;
 }
-
-/* Timeline principal */
 .timeline-section {
   position: relative;
   width: 100%;
@@ -2110,8 +2054,6 @@ a.btn-elegant:visited {
   justify-content: center;
   padding: 4rem 0;
 }
-
-/* Asegurar que funcione como sección */
 .timeline-section.section {
   opacity: 0;
   transform: translateY(50px);
@@ -2130,8 +2072,6 @@ a.btn-elegant:visited {
   position: relative;
   margin: 0 auto;
 }
-
-/* Header del timeline */
 .timeline-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -2165,8 +2105,6 @@ a.btn-elegant:visited {
   max-width: 800px;
   margin: 2rem auto 0;
 }
-
-/* Estructura timeline */
 .timeline-wrapper {
   position: relative;
   max-width: 1000px;
@@ -2184,12 +2122,8 @@ a.btn-elegant:visited {
   transform: translateX(-50%);
   z-index: 0;
 }
-
-/* Ajustes desktop/laptop: restaurar altura original */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .timeline-section .timeline-line { height: 1100px; }
-  
-  /* Reducir altura de línea en Chrome y Edge para desktop pequeño */
   .is-chrome .timeline-section .timeline-line,
   .is-edge .timeline-section .timeline-line {
     height: 1090px;
@@ -2197,8 +2131,6 @@ a.btn-elegant:visited {
 }
 @media (min-width: 1280px) and (max-width: 1439px) {
   .timeline-section .timeline-line { height: 1100px; }
-  
-  /* Reducir altura de línea en Chrome y Edge para desktop mediano */
   .is-chrome .timeline-section .timeline-line,
   .is-edge .timeline-section .timeline-line {
     height: 1090px;
@@ -2206,8 +2138,6 @@ a.btn-elegant:visited {
 }
 @media (min-width: 1440px) and (max-width: 1919px) {
   .timeline-section .timeline-line { height: 1100px; }
-  
-  /* Reducir altura de línea en Chrome y Edge para large desktop */
   .is-chrome .timeline-section .timeline-line,
   .is-edge .timeline-section .timeline-line {
     height:   950px;
@@ -2215,23 +2145,15 @@ a.btn-elegant:visited {
 }
 @media (min-width: 1920px) {
   .timeline-section .timeline-line { height: 1100px; }
-  
-  /* Reducir altura de línea en Chrome y Edge para extra large desktop */
   .is-chrome .timeline-section .timeline-line,
   .is-edge .timeline-section .timeline-line {
     height: 1090px;
   }
 }
-
-/* Browser-specific tweaks */
 @media (min-width: 1024px) {
-  /* Edge: reducir altura de línea para que quede dentro del icono */
   .is-edge .timeline-section .timeline-line { height: 1090px; }
-  /* Chrome: reducir altura de línea para que quede dentro del icono */
   .is-chrome .timeline-section .timeline-line { height: 1090px; }
 }
-
-/* Items del timeline */
 .timeline-section .timeline-item {
   position: relative;
   margin-bottom: 3rem;
@@ -2246,8 +2168,6 @@ a.btn-elegant:visited {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Iconos timeline */
 .timeline-section .timeline-icon {
   position: absolute;
   left: 50%;
@@ -2274,8 +2194,6 @@ a.btn-elegant:visited {
   color: #1b1b1b;
   z-index: 3;
 }
-
-/* Tarjetas timeline */
 .timeline-section .timeline-card {
   width: 45%;
   min-width: 320px;
@@ -2329,12 +2247,6 @@ a.btn-elegant:visited {
   text-align: left;
   color: var(--timeline-text-secondary);
 }
-
-/* ======================
-   RESPONSIVE DESIGN TIMELINE
-   ====================== */
-
-/* Desktop grande (1200px+) */
 @media (min-width: 1200px) {
   .timeline-section .timeline-container {
     max-width: 1200px;
@@ -2350,8 +2262,6 @@ a.btn-elegant:visited {
     max-width: 900px;
   }
 }
-
-/* Desktop mediano (1025px-1199px) */
 @media (max-width: 1199px) and (min-width: 1025px) {
   .timeline-section .timeline-container {
     max-width: 1000px;
@@ -2384,8 +2294,6 @@ a.btn-elegant:visited {
     padding: 1.8rem;
   }
 }
-
-/* Tablet mediano grande (861px-900px) */
 @media (max-width: 900px) and (min-width: 861px) {
   .timeline-section .timeline-line {
     height: 180vh;
@@ -2401,8 +2309,6 @@ a.btn-elegant:visited {
     font-size: 1.1rem;
   }
 }
-
-/* Tablet mediano (801px-860px) */
 @media (max-width: 860px) and (min-width: 801px) {
   .timeline-section .timeline-line {
     height: 188vh;
@@ -2419,8 +2325,6 @@ a.btn-elegant:visited {
     margin: 0 0.8rem;
   }
 }
-
-/* Tablet pequeño grande (781px-800px) */
 @media (max-width: 800px) and (min-width: 781px) {
   .timeline-section .timeline-line {
     height: 195vh;
@@ -2432,8 +2336,6 @@ a.btn-elegant:visited {
     margin: 0 1rem;
   }
 }
-
-/* Tablet pequeño (635px-780px) */
 @media (max-width: 780px) and (min-width: 635px) {
   .timeline-section .timeline-line {
     height: 195vh;
@@ -2456,8 +2358,6 @@ a.btn-elegant:visited {
     padding: 1.5rem;
   }
 }
-
-/* Móvil grande (481px-634px) */
 @media (max-width: 634px) and (min-width: 481px) {
   .timeline-section .timeline-container {
     padding: 0 1.5rem;
@@ -2478,8 +2378,6 @@ a.btn-elegant:visited {
     padding: 0 1rem;
   }
 }
-
-/* Móvil - 480px y menor */
 @media (max-width: 480px) {
   .timeline-section {
     padding: 2rem 0;
@@ -2507,8 +2405,6 @@ a.btn-elegant:visited {
     line-height: 1.5;
   }
 }
-
-/* Móvil principal - 768px y menor */
 @media (max-width: 768px) {
   /* Contenedor */
   .timeline-section .timeline-container {
@@ -2530,13 +2426,9 @@ a.btn-elegant:visited {
     font-size: 1rem;
     padding: 0 1rem;
   }
-  
-  /* OCULTAR LA LÍNEA DORADA EN MÓVILES */
   .timeline-section .timeline-line {
     display: none !important;
   }
-  
-  /* Iconos centrados */
   .timeline-section .timeline-icon {
     position: relative;
     left: auto;
@@ -2551,8 +2443,6 @@ a.btn-elegant:visited {
     font-size: 1.2rem;
     z-index: 11 !important;
   }
-  
-  /* Tarjetas centradas y verticales */
   .timeline-section .timeline-card {
     width: 100%;
     margin-left: 0 !important;
@@ -2573,8 +2463,6 @@ a.btn-elegant:visited {
     z-index: 5 !important;
     position: relative;
   }
-  
-  /* Items verticales */
   .timeline-section .timeline-item {
     margin-bottom: 2rem;
     flex-direction: column;
@@ -2595,8 +2483,6 @@ a.btn-elegant:visited {
     text-align: center !important;
   }
 }
-
-/* Reglas específicas para móviles (sin línea dorada) */
 @media (max-width: 768px) {
   .timeline-section .timeline-wrapper .timeline-item {
     z-index: 10 !important;
@@ -2615,8 +2501,6 @@ a.btn-elegant:visited {
     position: relative !important;
   }
 }
-
-/* Móvil muy pequeño - 320px y menor */
 @media (max-width: 320px) {
   .timeline-section .timeline-title {
     font-size: 1.6rem;
@@ -2645,12 +2529,6 @@ a.btn-elegant:visited {
     font-size: 0.85rem;
   }
 }
-
-/* ===========================================
-   SECCIÓN NOSOTROS - DISEÑO MÓVIL EXCLUSIVO
-   =========================================== */
-
-/* Variables CSS para la sección nosotros */
 :root {
   --nosotros-bg-start: #212120;
   --nosotros-bg-end: #1b1b1b;
@@ -2663,8 +2541,6 @@ a.btn-elegant:visited {
   --nosotros-card-border: rgba(212, 175, 55, 0.2);
   --nosotros-card-hover-border: rgba(212, 175, 55, 0.4);
 }
-
-/* SECCIÓN NOSOTROS MÓVIL - SOLO VISIBLE EN MÓVILES */
 .nosotros-section {
   min-height: 100vh;
   padding: 2rem 0;
@@ -2673,8 +2549,6 @@ a.btn-elegant:visited {
   overflow: hidden;
   display: block;
 }
-
-/* Fondo animado */
 .nosotros-bg-animated {
   position: absolute;
   top: -50%;
@@ -2685,8 +2559,6 @@ a.btn-elegant:visited {
   animation: nosotrosRotate 20s linear infinite;
   pointer-events: none;
 }
-
-/* Desactivar animación de wave en móvil */
 @media (max-width: 768px) {
   .nosotros-bg-animated {
     animation: none;
@@ -2698,16 +2570,12 @@ a.btn-elegant:visited {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-/* Contenedor principal */
 .nosotros-container {
   max-width: 100%;
   padding: 0 1rem;
   position: relative;
   z-index: 2;
 }
-
-/* Header móvil */
 .nosotros-header {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -2734,16 +2602,12 @@ a.btn-elegant:visited {
   margin: 0 auto;
   padding: 0 0.5rem;
 }
-
-/* Contenedor de servicios */
 .nosotros-services {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
-
-/* Tarjetas de servicios */
 .service-card {
   width: 100%;
   background: var(--nosotros-card-bg);
@@ -2783,8 +2647,6 @@ a.btn-elegant:visited {
   background: var(--nosotros-card-hover-bg);
   border-color: var(--nosotros-card-hover-border);
 }
-
-/* Iconos de servicios */
 .service-icon {
   text-align: center;
   margin-bottom: 1rem;
@@ -2794,8 +2656,6 @@ a.btn-elegant:visited {
   font-size: 2rem;
   color: var(--nosotros-gold);
 }
-
-/* Títulos de servicios */
 .service-title {
   font-family: 'Libre Baskerville', serif;
   font-size: 1.1rem;
@@ -2804,8 +2664,6 @@ a.btn-elegant:visited {
   text-align: center;
   font-weight: bold;
 }
-
-/* Descripciones de servicios */
 .service-description {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.9rem;
@@ -2813,8 +2671,6 @@ a.btn-elegant:visited {
   line-height: 1.5;
   text-align: center;
 }
-
-/* Sección misión */
 .nosotros-mission {
   background: rgba(212, 175, 55, 0.1);
   border-radius: 15px;
@@ -2850,8 +2706,6 @@ a.btn-elegant:visited {
   line-height: 1.6;
   text-align: center;
 }
-
-/* Animaciones reveal */
 .nosotros-section .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -2862,14 +2716,10 @@ a.btn-elegant:visited {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Stagger animation para tarjetas */
 .nosotros-section .service-card.reveal:nth-child(1) { transition-delay: 0.1s; }
 .nosotros-section .service-card.reveal:nth-child(2) { transition-delay: 0.2s; }
 .nosotros-section .service-card.reveal:nth-child(3) { transition-delay: 0.3s; }
 .nosotros-section .nosotros-mission.reveal { transition-delay: 0.4s; }
-
-/* Responsive breakpoints para móviles */
 @media (min-width: 320px) and (max-width: 480px) {
   .nosotros-container {
     padding: 0 1rem;
@@ -2905,8 +2755,6 @@ a.btn-elegant:visited {
     font-size: 0.95rem;
   }
 }
-
-/* Breakpoint específico para tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
   .nosotros-container {
     padding: 0 2rem;
@@ -2938,8 +2786,6 @@ a.btn-elegant:visited {
   .mission-description {
     font-size: 1.05rem;
   }
-  
-  /* Ajustar espaciado para tablets */
   .nosotros-services {
     gap: 2rem;
   }
@@ -2952,29 +2798,21 @@ a.btn-elegant:visited {
     padding: 2rem;
   }
 }
-
-/* OCULTAR SECCIÓN NOSOTROS EN DESKTOP */
 @media (min-width: 1025px) {
   .nosotros-section {
     display: none !important;
   }
 }
-
-/* MOSTRAR TIMELINE DESKTOP EN DESKTOP */
 @media (min-width: 1025px) {
   .timeline-section {
     display: block !important;
   }
 }
-
-/* OCULTAR TIMELINE DESKTOP EN MÓVILES Y TABLETS */
 @media (max-width: 1024px) {
   .timeline-section {
     display: none !important;
   }
 }
-
-/* Soporte para reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .nosotros-bg-animated {
     animation: none;
@@ -2988,12 +2826,6 @@ a.btn-elegant:visited {
     transition: none;
   }
 }
-
-/* ===========================================
-   MENÚ HAMBURGUESA SIMPLE - SOLO MÓVILES
-   =========================================== */
-
-/* Botón hamburguesa - Solo visible en móviles */
 .hamburger-btn {
   display: none;
   position: fixed;
@@ -3020,8 +2852,6 @@ a.btn-elegant:visited {
   transition: all 0.3s ease;
   transform-origin: center;
 }
-
-/* Animación del botón hamburguesa */
 .hamburger-btn.active .hamburger-line:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -3034,8 +2864,6 @@ a.btn-elegant:visited {
 .hamburger-btn.active .hamburger-line:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
-
-/* Menú móvil - Overlay completo */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -3057,8 +2885,6 @@ a.btn-elegant:visited {
   opacity: 1;
   visibility: visible;
 }
-
-/* Contenido del menú móvil */
 .mobile-menu-content {
   display: flex;
   flex-direction: column;
@@ -3119,18 +2945,13 @@ a.btn-elegant:visited {
 .mobile-link.mobile-cta::before {
   display: none;
 }
-
-/* Mostrar solo en móviles */
 @media (max-width: 1024px) {
   .hamburger-btn {
     display: block;
   }
-  
   .navbar-menu {
     display: none;
   }
-  
-  /* Logo de Caribbean pegado a la izquierda en móviles */
   .navbar-logo {
     padding-left: 10px;
   }
@@ -3142,8 +2963,6 @@ a.btn-elegant:visited {
     top: 0;
   }
 }
-
-/* Ajustes específicos para móviles - logo pegado con tamaño original */
 @media (max-width: 1024px) {
   .navbar-logo {
     padding-left: 10px;
@@ -3155,8 +2974,6 @@ a.btn-elegant:visited {
     transform: translateX(0);
   }
 }
-
-/* Ocultar en desktop */
 @media (min-width: 1025px) {
   .hamburger-btn,
   .mobile-menu {
@@ -3167,4 +2984,3 @@ a.btn-elegant:visited {
     display: flex !important;
   }
 }
-
