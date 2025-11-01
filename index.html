@@ -726,6 +726,54 @@
       top: -10px;
     }
     
+    /* Ajustes específicos para Edge y Chrome - Centrar y alinear con footer */
+    .is-edge .premium-contact-container,
+    .is-chrome .premium-contact-container {
+      transform: translateX(0) !important;
+      padding: 0 32px !important;
+      gap: 80px !important;
+      align-items: center !important;
+      justify-items: center !important;
+    }
+    
+    .is-edge .contact-info-side,
+    .is-chrome .contact-info-side {
+      margin-left: 0 !important;
+      transform: translateX(0) !important;
+      width: 100% !important;
+    }
+    
+    /* Reducir tamaño de fuente para Chrome y Edge */
+    .is-edge .contact-title,
+    .is-chrome .contact-title {
+      font-size: 32px !important;
+    }
+    
+    .is-edge .contact-subtitle,
+    .is-chrome .contact-subtitle {
+      font-size: 14px !important;
+    }
+    
+    .is-edge .contact-details h4,
+    .is-chrome .contact-details h4 {
+      font-size: 15px !important;
+    }
+    
+    .is-edge .contact-details p,
+    .is-chrome .contact-details p {
+      font-size: 14px !important;
+    }
+    
+    .is-edge .contact-form,
+    .is-chrome .contact-form {
+      position: relative !important;
+      right: auto !important;
+      top: -10px !important;
+      min-width: 540px !important;
+      max-width: 540px !important;
+      width: 100% !important;
+    }
+    
     /* Centrar formulario para Microsoft Edge */
     @supports (-ms-ime-align: auto) {
       .contact-form {
@@ -916,6 +964,43 @@
         top: auto !important;
         min-width: 520px !important;
         max-width: 520px !important;
+      }
+      
+      /* Edge y Chrome - Mantener centrado y alineado con footer en large desktop */
+      .is-edge .premium-contact-container,
+      .is-chrome .premium-contact-container {
+        max-width: 1200px !important;
+        padding: 0 32px !important;
+        transform: translateX(0) !important;
+        gap: 100px !important;
+      }
+      
+      .is-edge .contact-form,
+      .is-chrome .contact-form {
+        min-width: 520px !important;
+        max-width: 520px !important;
+        top: -10px !important;
+      }
+      
+      /* Reducir tamaño de fuente para Chrome y Edge en large desktop */
+      .is-edge .contact-title,
+      .is-chrome .contact-title {
+        font-size: 36px !important;
+      }
+      
+      .is-edge .contact-subtitle,
+      .is-chrome .contact-subtitle {
+        font-size: 15px !important;
+      }
+      
+      .is-edge .contact-details h4,
+      .is-chrome .contact-details h4 {
+        font-size: 16px !important;
+      }
+      
+      .is-edge .contact-details p,
+      .is-chrome .contact-details p {
+        font-size: 15px !important;
       }
       
       .contact-title {

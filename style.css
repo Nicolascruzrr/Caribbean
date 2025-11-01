@@ -1734,6 +1734,19 @@ a.btn-elegant:visited {
   .floating-back-to-top i {
     font-size: 1rem;
   }
+  
+  /* Centrar texto de derechos en móvil */
+  .footer-bottom {
+    justify-content: center !important;
+    padding: 40px 20px 12px 20px !important;
+  }
+  
+  .footer-bottom span {
+    left: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+  }
 }
 
 @media (max-width: 600px) and (min-width: 481px) {
