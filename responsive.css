@@ -1,6 +1,23 @@
 
 
 
+/* Ocultar controles de video en móviles */
+@media (max-width: 768px) {
+  .new-hero .new-hero-media video {
+    pointer-events: none !important;
+  }
+  
+  /* Prevenir que el video muestre controles nativos */
+  .new-hero .new-hero-media video::-webkit-media-controls,
+  .new-hero .new-hero-media video::-webkit-media-controls-panel,
+  .new-hero .new-hero-media video::-webkit-media-controls-play-button,
+  .new-hero .new-hero-media video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    opacity: 0 !important;
+    -webkit-appearance: none !important;
+  }
+}
+
 /* Desktop/Large desktop */
 @media (min-width: 1440px) {
   .new-hero .new-hero-sub {
