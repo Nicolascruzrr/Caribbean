@@ -1917,6 +1917,10 @@ a.btn-elegant:visited {
   transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   font-family: "Inter", sans-serif;
+  font-size: 15px !important;
+  min-width: auto !important;
+  width: auto !important;
+  height: auto !important;
 }
 
 .navbar-menu a.contactanos:hover {

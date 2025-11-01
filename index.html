@@ -172,7 +172,10 @@
       .new-hero .btn-secondary { background:transparent; color:#ffffff; padding:14px 24px; border-radius:12px; border:2px solid #ffffff; }
       .new-hero .btn-secondary:hover, .new-hero .btn-secondary:focus-visible { background:var(--gold); color:#121212; transform:scale(1.05); border-color:var(--gold); }
       .new-hero .btn-primary:focus-visible, .new-hero .btn-secondary:focus-visible { box-shadow:0 0 0 3px rgba(212,175,55,.6); }
-      .new-hero .scroll-indicator { position:absolute; left:50%; bottom:32px; transform:translateX(-50%); opacity:.8; z-index:2; cursor:pointer; }
+      .new-hero .scroll-indicator { position:absolute; left:50%; bottom:32px; transform:translateX(-50%); opacity:.8; z-index:2; cursor:pointer; background:transparent !important; border:none !important; outline:none !important; }
+      .new-hero .scroll-indicator:hover { background:transparent !important; }
+      .new-hero .scroll-indicator:active { background:transparent !important; }
+      .new-hero .scroll-indicator:focus { background:transparent !important; outline:none !important; box-shadow:none !important; }
       @media (max-width: 767px){ .new-hero .scroll-indicator { display:none !important; } .new-hero .new-hero-overlay { background:rgba(0,0,0,.4); } }
       @media (max-width: 480px){ .new-hero .scroll-indicator { display:none !important; } }
       .new-hero .scroll-indicator svg { width:28px; height:28px; fill:#ffffff; opacity:.9; }
@@ -201,7 +204,7 @@
       @media (min-width:1440px){ .is-chrome .new-hero .new-hero-title .line-1 { transform: translateX(-110px); } }
     </style>
     <script>window.tailwind=window.tailwind||{}; window.tailwind.config = { corePlugins: { preflight: false } };</script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://cdn.tailwindcss.com"></script>
     <div class="new-hero-media" aria-hidden="true">
       <video id="newHeroVideo" autoplay muted loop playsinline preload="metadata" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
         <source src="Fotos/Caribbean.mp4" type="video/mp4">
@@ -616,6 +619,13 @@
       max-width: 500px;
     }
     
+    /* Desktop - Alinear párrafo con el título */
+    @media (min-width: 1025px) {
+      .contact-subtitle {
+        transform: translateX(5px);
+      }
+    }
+    
     .contact-item {
       display: flex;
       align-items: flex-start;
@@ -713,7 +723,7 @@
       min-width: 540px;
       position: absolute;
       right: 40px;
-      top: -20px;
+      top: -10px;
     }
     
     /* Centrar formulario para Microsoft Edge */
@@ -917,6 +927,7 @@
         font-size: 18px !important;
         margin-bottom: 60px !important;
         max-width: 600px !important;
+        transform: translateX(5px) !important;
       }
       
       .contact-item {
@@ -1111,7 +1122,7 @@
     <!-- Lado Izquierdo - Información de Contacto -->
     <div class="contact-info-side">
       <h2 class="contact-title">Contacta con Nosotros</h2>
-      <p class="contact-subtitle">Estamos listos para hacer realidad tu próximo proyecto. Contáctanos hoy mismo para comenzar a construir el hogar de tus sueños.</p>
+      <p class="contact-subtitle">Estamos listos para hacer realidad tu próximo proyecto. Contáctanos hoy mismo para comenzar a construir el hogar<span class="ipad-horizontal-br"><br></span> de tus sueños.</p>
       
       <div class="contact-item">
         <a href="https://www.google.com/maps/place/Plaza+Thesalia/@18.5007229,-69.9540394,718m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8eaf898637202045:0x36a76cb2d8e7a7ba!8m2!3d18.5007178!4d-69.9514645!16s%2Fg%2F11bw76x5mc?entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="contact-icon contact-link">
@@ -1121,7 +1132,7 @@
         </a>
         <div class="contact-details">
           <h4>Dirección</h4>
-          <p>Plaza Thesalia, Av. Carlos Perez Ricart 19, Santo Domingo</p>
+          <p>Plaza Thesalia, Av. Carlos Perez Ricart 19,<br>Santo Domingo</p>
         </div>
       </div>
       

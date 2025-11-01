@@ -382,23 +382,38 @@
 /* ============== TABLET HORIZONTAL (1025px-1439px) ============== */
 /* Detecta tablets por orientación y características táctiles */
 /* CONTACTANOS - Solo título en una línea para iPad horizontal */
+/* Ocultar el <br> por defecto */
+.ipad-horizontal-br {
+  display: none !important;
+}
+
 @media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
   .premium-contact-section .contact-title {
     font-size: 28px !important;
     white-space: nowrap !important;
   }
   
+  /* CONTACTANOS - Mostrar salto de línea en iPad horizontal */
+  .ipad-horizontal-br {
+    display: inline !important;
+  }
+  
+  /* CONTACTANOS - Alinear párrafo con el título */
+  .premium-contact-section .contact-subtitle {
+    transform: translateX(5px) !important;
+  }
+  
   /* CONTACTANOS - Mantener formulario en su posición original */
   .premium-contact-section .contact-form {
     position: absolute !important;
     right: 5px !important;
-    top: -35px !important;
+    top: -45px !important;
     min-width: 540px !important;
   }
   
   /* CONTACTANOS - Mover información más a la izquierda */
   .premium-contact-section .contact-info-side {
-    transform: translateX(-40px) !important;
+    transform: translateX(-20px) !important;
   }
   
   /* HERO SECTION - Solo párrafo de abajo para tablet horizontal */

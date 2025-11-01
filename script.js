@@ -131,14 +131,24 @@ function smoothScrollTo(target) {
 let navbarTicking = false;
 const navbarEl = document.getElementById('navbar');
 
+// Función para actualizar el estado del navbar
+function updateNavbarState() {
+  if (window.scrollY > 100) {
+    navbarEl.classList.add('navbar--visible');
+  } else {
+    navbarEl.classList.remove('navbar--visible');
+  }
+}
+
+// Inicializar el navbar al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+  updateNavbarState();
+});
+
 window.addEventListener('scroll', function() {
   if (!navbarTicking) {
     window.requestAnimationFrame(function() {
-      if (window.scrollY > 100) {
-        navbarEl.classList.add('navbar--visible');
-      } else {
-        navbarEl.classList.remove('navbar--visible');
-      }
+      updateNavbarState();
       navbarTicking = false;
     });
     navbarTicking = true;
