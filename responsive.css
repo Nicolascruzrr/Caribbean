@@ -1,20 +1,43 @@
 
 
 
-/* Ocultar controles de video en móviles */
-@media (max-width: 768px) {
+/* Ocultar controles de video en móviles y tablets */
+@media (max-width: 1024px) {
   .new-hero .new-hero-media video {
     pointer-events: none !important;
   }
   
-  /* Prevenir que el video muestre controles nativos */
+  /* Prevenir que el video muestre controles nativos en todos los navegadores */
   .new-hero .new-hero-media video::-webkit-media-controls,
   .new-hero .new-hero-media video::-webkit-media-controls-panel,
   .new-hero .new-hero-media video::-webkit-media-controls-play-button,
-  .new-hero .new-hero-media video::-webkit-media-controls-start-playback-button {
+  .new-hero .new-hero-media video::-webkit-media-controls-start-playback-button,
+  .new-hero .new-hero-media video::-webkit-media-controls-overlay-play-button,
+  .new-hero .new-hero-media video::-webkit-media-controls-timeline,
+  .new-hero .new-hero-media video::-webkit-media-controls-current-time-display,
+  .new-hero .new-hero-media video::-webkit-media-controls-time-remaining-display,
+  .new-hero .new-hero-media video::-webkit-media-controls-mute-button,
+  .new-hero .new-hero-media video::-webkit-media-controls-volume-slider,
+  .new-hero .new-hero-media video::-webkit-media-controls-fullscreen-button {
     display: none !important;
     opacity: 0 !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
     -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  
+  /* Ocultar controles en Firefox */
+  .new-hero .new-hero-media video::-moz-media-controls,
+  .new-hero .new-hero-media video::-moz-media-controls-panel {
+    display: none !important;
+  }
+  
+  /* Ocultar poster/thumbnail que puede mostrar botón de play */
+  .new-hero .new-hero-media video::before,
+  .new-hero .new-hero-media video::after {
+    display: none !important;
   }
 }
 
@@ -1004,10 +1027,21 @@
   
   .new-hero .btn-primary,
   .new-hero .btn-secondary {
-    padding: 12px 20px !important;
-    font-size: 0.9rem !important;
+    padding: 14px 16px !important;
+    font-size: 0.85rem !important;
     border-radius: 10px !important;
     font-weight: 600 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Ajustes adicionales para dispositivos muy pequeños */
+@media (max-width: 360px) {
+  .new-hero .btn-primary,
+  .new-hero .btn-secondary {
+    padding: 14px 12px !important;
+    font-size: 0.8rem !important;
   }
 }
 

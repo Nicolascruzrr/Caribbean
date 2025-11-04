@@ -236,7 +236,7 @@ const projectData = {
       'C.V Fotos/Area Social C.V.jpg',
       'C.V Fotos/Habitacion C.V.jpg',
       'C.V Fotos/Estudio C.V.jpg',
-      'Fotos/Caribbean View.png'
+      'Fotos/Caribbean View S.png'
     ],
     area: '257 m²',
     rooms: '8 Unidades',

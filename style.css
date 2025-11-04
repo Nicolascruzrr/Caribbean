@@ -230,8 +230,8 @@ img[loading="lazy"].loaded {
 .media-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 30px 60px rgba(0,0,0,.45); filter: saturate(1.05); }
 
 
-.media-card.oceanview { background-image: url('Fotos/Caribbean View.png'); background-size: cover; background-position: center; }
-.media-card.corporate { background-image: url('Fotos/Edificio Caribbean.jpg'); background-size: cover; background-position: center; }
+.media-card.oceanview { background: none; background-image: url('Fotos/Caribbean View S.png'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.media-card.corporate { background: none; background-image: url('Fotos/Edificio Caribbean.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
 
 .media-tags {
   position: absolute;
@@ -279,15 +279,38 @@ img[loading="lazy"].loaded {
   .split-card.reverse .split-content { order: 1; }
   .split-card.reverse .split-media { order: 2; }
   .media-card { height: 280px; }
+  /* Asegurar que las imágenes cubran completamente sin mostrar background dorado */
+  .media-card.oceanview,
+  .media-card.corporate {
+    background: none !important;
+    background-image: url('Fotos/Caribbean View S.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+  .media-card.corporate {
+    background-image: url('Fotos/Edificio Caribbean.jpg') !important;
+  }
 }
 
 /* Ajuste específico para todas las versiones de tablet - imagen completa */
 @media (min-width: 481px) and (max-width: 1024px) {
   .media-card { 
     height: 400px; 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+  }
+  /* Para tablets también usar cover para que no se vea el background dorado */
+  .media-card.oceanview,
+  .media-card.corporate {
+    background: none !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+  .media-card.oceanview {
+    background-image: url('Fotos/Caribbean View S.png') !important;
+  }
+  .media-card.corporate {
+    background-image: url('Fotos/Edificio Caribbean.jpg') !important;
   }
 }
 
@@ -302,6 +325,20 @@ img[loading="lazy"].loaded {
   .split-stats { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
   .stat-value { font-size: 28px; }
   .media-tags span { font-size: 12px; padding: 8px 10px; }
+  /* Para móviles pequeños asegurar que las imágenes cubran sin background dorado */
+  .media-card.oceanview,
+  .media-card.corporate {
+    background: none !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+  .media-card.oceanview {
+    background-image: url('Fotos/Caribbean View S.png') !important;
+  }
+  .media-card.corporate {
+    background-image: url('Fotos/Edificio Caribbean.jpg') !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1950,7 +1987,26 @@ a.btn-elegant:visited {
 
 
 @media (max-width: 1024px) {
-  
+  /* Ajustar botón Contáctanos del navbar en tablets */
+  .navbar-menu a.contactanos {
+    padding: 10px 20px;
+    font-size: 14px !important;
+  }
+}
+
+/* Ajustes para dispositivos pequeños */
+@media (max-width: 480px) {
+  .navbar-menu a.contactanos {
+    padding: 8px 16px;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar-menu a.contactanos {
+    padding: 8px 12px;
+    font-size: 12px !important;
+  }
 }
 
   
