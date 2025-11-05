@@ -217,7 +217,7 @@ img[loading="lazy"].loaded {
 .media-card {
   height: 360px;
   border-radius: 20px;
-  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  background: #1b1b1b;
   box-shadow: inset 0 -80px 120px rgba(0,0,0,0.25), 0 20px 40px rgba(0,0,0,0.35);
   overflow: hidden;
   transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
@@ -278,11 +278,11 @@ img[loading="lazy"].loaded {
   .split-card.reverse { grid-template-columns: 1fr; }
   .split-card.reverse .split-content { order: 1; }
   .split-card.reverse .split-media { order: 2; }
-  .media-card { height: 280px; }
-  /* Asegurar que las imágenes cubran completamente sin mostrar background dorado */
+  .media-card { height: 280px; background: #1b1b1b !important; }
+  /* Asegurar que las imágenes cubran completamente sin mostrar background */
   .media-card.oceanview,
   .media-card.corporate {
-    background: none !important;
+    background: #1b1b1b !important;
     background-image: url('Fotos/Caribbean View S.png') !important;
     background-size: cover !important;
     background-position: center !important;
@@ -297,11 +297,12 @@ img[loading="lazy"].loaded {
 @media (min-width: 481px) and (max-width: 1024px) {
   .media-card { 
     height: 400px; 
+    background: #1b1b1b !important;
   }
-  /* Para tablets también usar cover para que no se vea el background dorado */
+  /* Para tablets también usar cover para que no se vea el background */
   .media-card.oceanview,
   .media-card.corporate {
-    background: none !important;
+    background: #1b1b1b !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -325,10 +326,13 @@ img[loading="lazy"].loaded {
   .split-stats { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
   .stat-value { font-size: 28px; }
   .media-tags span { font-size: 12px; padding: 8px 10px; }
-  /* Para móviles pequeños asegurar que las imágenes cubran sin background dorado */
+  /* Para móviles pequeños asegurar que las imágenes cubran sin mostrar background */
+  .media-card {
+    background: #1b1b1b !important;
+  }
   .media-card.oceanview,
   .media-card.corporate {
-    background: none !important;
+    background: #1b1b1b !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -338,6 +342,28 @@ img[loading="lazy"].loaded {
   }
   .media-card.corporate {
     background-image: url('Fotos/Edificio Caribbean.jpg') !important;
+  }
+}
+
+/* Regla específica para iPhone - asegurar fondo gris */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 1024px) {
+    .media-card {
+      background: #1b1b1b !important;
+    }
+    .media-card.oceanview,
+    .media-card.corporate {
+      background: #1b1b1b !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+    .media-card.oceanview {
+      background-image: url('Fotos/Caribbean View S.png') !important;
+    }
+    .media-card.corporate {
+      background-image: url('Fotos/Edificio Caribbean.jpg') !important;
+    }
   }
 }
 
