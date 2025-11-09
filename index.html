@@ -617,13 +617,106 @@
       gap: 60px;
       align-items: start;
     }
-    /* Mover toda la sección ligeramente hacia la derecha en desktop */
-    @media (min-width: 1024px) {
+    /* Mover toda la sección ligeramente hacia la derecha en desktop - EXCEPTO la versión específica */
+    @media (min-width: 1024px) and (max-width: 1199px) {
       .premium-contact-container { transform: translateX(40px); }
       .contact-info-side { margin-left: -55px; }
     }
     @media (min-width: 1440px) {
       .premium-contact-container { transform: translateX(60px); }
+    }
+    
+    /* Versión Desktop ESPECÍFICA SOLAMENTE (1200px-1399px) - Solo esta versión, sin Edge/Chrome */
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      body:not(.is-edge):not(.is-chrome) .premium-contact-section {
+        padding: 80px 0 !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .premium-contact-container { 
+        transform: translateX(0) !important; 
+        margin: 0 auto !important;
+        max-width: 1200px !important;
+        gap: 60px !important;
+        padding: 0 40px !important;
+      }
+      body:not(.is-edge):not(.is-chrome) .contact-info-side { 
+        margin-left: 0 !important; 
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-title {
+        font-size: 38px !important;
+        margin-bottom: 20px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-subtitle {
+        font-size: 16px !important;
+        margin-bottom: 50px !important;
+        transform: translateX(5px) !important;
+        max-width: 500px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-item {
+        margin-bottom: 40px !important;
+        gap: 20px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-icon {
+        width: 40px !important;
+        height: 40px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-icon svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-details h4 {
+        font-size: 17px !important;
+        margin: 0 0 8px 0 !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-details p {
+        font-size: 16px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .social-icons-row {
+        margin-top: 30px !important;
+        gap: 15px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .social-icon {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 20px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-form {
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
+        min-width: 540px !important;
+        max-width: 540px !important;
+        width: 100% !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-form label {
+        font-size: 16px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-form input,
+      body:not(.is-edge):not(.is-chrome) .contact-form textarea {
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .contact-form textarea {
+        min-height: 140px !important;
+      }
+      
+      body:not(.is-edge):not(.is-chrome) .btn-form {
+        font-size: 16px !important;
+        padding: 14px 0 !important;
+      }
     }
     
     .contact-info-side {
