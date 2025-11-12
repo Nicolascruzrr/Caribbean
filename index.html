@@ -157,7 +157,7 @@
 
   <!-- === PREMIUM HERO (REPLACES FIRST SLIDE) === -->
   <section id="premium-hero" role="banner" aria-label="Hero Caribeño" class="new-hero">
-    <script>(function(){try{var ua=navigator.userAgent;var isEdge=ua.indexOf('Edg/')>-1;var isOpera=ua.indexOf('OPR/')>-1||ua.indexOf('Opera')>-1;var isChrome=ua.indexOf('Chrome/')>-1&&!isEdge&&!isOpera;var isAndroid=/Android/i.test(ua);var isSamsung=/Samsung|SM-|Galaxy/i.test(ua);if(isChrome){document.documentElement.classList.add('is-chrome');}if(isEdge){document.documentElement.classList.add('is-edge');}if(isAndroid){document.documentElement.classList.add('is-android');}if(isSamsung){document.documentElement.classList.add('is-samsung');}}catch(e){}})();</script>
+    <script>(function(){try{var ua=navigator.userAgent;var isEdge=ua.indexOf('Edg/')>-1;var isOpera=ua.indexOf('OPR/')>-1||ua.indexOf('Opera')>-1;var isChrome=ua.indexOf('Chrome/')>-1&&!isEdge&&!isOpera;var isFirefox=ua.indexOf('Firefox/')>-1&&!isChrome&&!isEdge;var isAndroid=/Android/i.test(ua);var isSamsung=/Samsung|SM-|Galaxy/i.test(ua);if(isChrome){document.documentElement.classList.add('is-chrome');}if(isEdge){document.documentElement.classList.add('is-edge');}if(isFirefox){document.documentElement.classList.add('is-firefox');}if(isAndroid){document.documentElement.classList.add('is-android');}if(isSamsung){document.documentElement.classList.add('is-samsung');}}catch(e){}})();</script>
     <style>
       .new-hero { --gold:#D4AF37; --gold-hover:#C9A55F; --bg:#121212; --text:#ffffff; --overlay:rgba(0,0,0,.4); }
       .new-hero { position:relative; width:100%; min-height:100vh; background:var(--bg); color:var(--text); overflow:hidden; font-family:'Inter',system-ui,-apple-system,sans-serif; }
@@ -896,6 +896,11 @@
       width: 100% !important;
     }
     
+    /* Ajuste específico solo para Firefox - Bajar formulario un poquito */
+    .is-firefox .contact-form {
+      top: -5px !important;
+    }
+    
     /* Centrar formulario para Microsoft Edge */
     @supports (-ms-ime-align: auto) {
       .contact-form {
@@ -1104,6 +1109,11 @@
         top: -10px !important;
       }
       
+      /* Ajuste específico solo para Firefox en large desktop - Bajar formulario un poquito */
+      .is-firefox .contact-form {
+        top: -5px !important;
+      }
+      
       /* Reducir tamaño de fuente para Chrome y Edge en large desktop */
       .is-edge .contact-title,
       .is-chrome .contact-title {
@@ -1204,6 +1214,14 @@
         margin: 0 !important; 
       }
       
+      /* Edge y Chrome - Formulario a ancho completo en tablet */
+      .is-edge .contact-form,
+      .is-chrome .contact-form {
+        width: 100% !important;
+        min-width: auto !important;
+        max-width: 100% !important;
+      }
+      
       .contact-form input,
       .contact-form textarea {
         width: 100%;
@@ -1241,6 +1259,14 @@
         bottom: 20px !important;
         padding: 1rem 0 2rem 0 !important;
         margin: 0 !important; 
+      }
+      
+      /* Edge y Chrome - Formulario a ancho completo en tablet y móvil */
+      .is-edge .contact-form,
+      .is-chrome .contact-form {
+        width: 100% !important;
+        min-width: auto !important;
+        max-width: 100% !important;
       }
       
       .contact-form label {
@@ -1301,6 +1327,14 @@
       
       .contact-form {
         padding: 1rem 0 2rem 0 !important;
+      }
+      
+      /* Edge y Chrome - Formulario a ancho completo en móvil */
+      .is-edge .contact-form,
+      .is-chrome .contact-form {
+        width: 100% !important;
+        min-width: auto !important;
+        max-width: 100% !important;
       }
       
       .contact-form input,
