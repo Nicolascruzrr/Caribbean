@@ -848,57 +848,190 @@
       top: -10px;
     }
     
-    /* Ajustes específicos para Edge y Chrome - Centrar y alinear con footer */
-    .is-edge .premium-contact-container,
-    .is-chrome .premium-contact-container {
-      transform: translateX(0) !important;
-      padding: 0 32px !important;
-      gap: 80px !important;
-      align-items: center !important;
-      justify-items: center !important;
+    /* Ajustes específicos para Edge y Chrome - SOLO DESKTOP (min-width: 1024px) */
+    @media (min-width: 1024px) {
+      .is-edge .premium-contact-container,
+      .is-chrome .premium-contact-container {
+        transform: translateX(0) !important;
+        padding: 0 32px !important;
+        gap: 80px !important;
+        align-items: center !important;
+        justify-items: center !important;
+      }
+      
+      .is-edge .contact-info-side,
+      .is-chrome .contact-info-side {
+        margin-left: 0 !important;
+        transform: translateX(0) !important;
+        width: 100% !important;
+      }
+      
+      /* Reducir tamaño de fuente para Chrome y Edge - SOLO DESKTOP */
+      .is-edge .contact-title,
+      .is-chrome .contact-title {
+        font-size: 32px !important;
+      }
+      
+      .is-edge .contact-subtitle,
+      .is-chrome .contact-subtitle {
+        font-size: 14px !important;
+      }
+      
+      .is-edge .contact-details h4,
+      .is-chrome .contact-details h4 {
+        font-size: 15px !important;
+      }
+      
+      .is-edge .contact-details p,
+      .is-chrome .contact-details p {
+        font-size: 14px !important;
+      }
+      
+      .is-edge .contact-form,
+      .is-chrome .contact-form {
+        position: relative !important;
+        right: auto !important;
+        top: -10px !important;
+        min-width: 540px !important;
+        max-width: 540px !important;
+        width: 100% !important;
+      }
     }
     
-    .is-edge .contact-info-side,
-    .is-chrome .contact-info-side {
-      margin-left: 0 !important;
-      transform: translateX(0) !important;
-      width: 100% !important;
+    /* Ajuste específico solo para Firefox - Bajar formulario un poquito - SOLO DESKTOP */
+    @media (min-width: 1024px) {
+      .is-firefox .contact-form {
+        top: -5px !important;
+      }
     }
     
-    /* Reducir tamaño de fuente para Chrome y Edge */
-    .is-edge .contact-title,
-    .is-chrome .contact-title {
-      font-size: 32px !important;
+    /* MOBILE: Hacer que Edge/Chrome se vea igual que Firefox */
+    @media (max-width: 768px) {
+      /* Anular todos los estilos de Edge/Chrome en móvil para que se vea igual que Firefox */
+      .is-edge .premium-contact-container,
+      .is-chrome .premium-contact-container {
+        transform: none !important;
+        padding: 0 20px !important;
+        gap: 40px !important;
+        align-items: start !important;
+        justify-items: start !important;
+      }
+      
+      .is-edge .contact-info-side,
+      .is-chrome .contact-info-side {
+        margin-left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+      }
+      
+      /* Restaurar tamaños de fuente iguales a Firefox en móvil */
+      .is-edge .contact-title,
+      .is-chrome .contact-title {
+        font-size: 32px !important;
+      }
+      
+      .is-edge .contact-subtitle,
+      .is-chrome .contact-subtitle {
+        font-size: 15px !important;
+      }
+      
+      .is-edge .contact-details h4,
+      .is-chrome .contact-details h4 {
+        font-size: 17px !important;
+      }
+      
+      .is-edge .contact-details p,
+      .is-chrome .contact-details p {
+        font-size: 16px !important;
+      }
+      
+      .is-edge .contact-form,
+      .is-chrome .contact-form {
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: 20px !important;
+        min-width: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 1rem 0 2rem 0 !important;
+        margin: 0 !important;
+      }
+      
+      .is-edge .contact-form label,
+      .is-chrome .contact-form label {
+        font-size: 15px !important;
+      }
+      
+      .is-edge .contact-form input,
+      .is-chrome .contact-form input,
+      .is-edge .contact-form textarea,
+      .is-chrome .contact-form textarea {
+        font-size: 16px !important;
+        padding: 14px 16px !important;
+      }
+      
+      .is-edge .btn-form,
+      .is-chrome .btn-form {
+        font-size: 16px !important;
+        padding: 14px 0 !important;
+      }
+      
+      .is-edge .contact-item,
+      .is-chrome .contact-item {
+        margin-bottom: 30px !important;
+        gap: 20px !important;
+      }
+      
+      .is-edge .contact-icon,
+      .is-chrome .contact-icon {
+        width: 40px !important;
+        height: 40px !important;
+      }
+      
+      .is-edge .contact-icon svg,
+      .is-chrome .contact-icon svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+      
+      .is-edge .social-icons-row,
+      .is-chrome .social-icons-row {
+        gap: 18px !important;
+        margin-top: 25px !important;
+      }
+      
+      .is-edge .social-icon,
+      .is-chrome .social-icon {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 18px !important;
+      }
     }
     
-    .is-edge .contact-subtitle,
-    .is-chrome .contact-subtitle {
-      font-size: 14px !important;
-    }
-    
-    .is-edge .contact-details h4,
-    .is-chrome .contact-details h4 {
-      font-size: 15px !important;
-    }
-    
-    .is-edge .contact-details p,
-    .is-chrome .contact-details p {
-      font-size: 14px !important;
-    }
-    
-    .is-edge .contact-form,
-    .is-chrome .contact-form {
-      position: relative !important;
-      right: auto !important;
-      top: -10px !important;
-      min-width: 540px !important;
-      max-width: 540px !important;
-      width: 100% !important;
-    }
-    
-    /* Ajuste específico solo para Firefox - Bajar formulario un poquito */
-    .is-firefox .contact-form {
-      top: -5px !important;
+    @media (max-width: 480px) {
+      /* Ajustes adicionales para móvil pequeño - Edge/Chrome igual que Firefox */
+      .is-edge .contact-title,
+      .is-chrome .contact-title {
+        font-size: 28px !important;
+      }
+      
+      .is-edge .contact-subtitle,
+      .is-chrome .contact-subtitle {
+        font-size: 15px !important;
+        margin-bottom: 40px !important;
+      }
+      
+      .is-edge .premium-contact-container,
+      .is-chrome .premium-contact-container {
+        padding: 0 15px !important;
+        gap: 30px !important;
+      }
+      
+      .is-edge .contact-form,
+      .is-chrome .contact-form {
+        padding: 1rem 0 2rem 0 !important;
+      }
     }
     
     /* Centrar formulario para Microsoft Edge */
@@ -1214,13 +1347,7 @@
         margin: 0 !important; 
       }
       
-      /* Edge y Chrome - Formulario a ancho completo en tablet */
-      .is-edge .contact-form,
-      .is-chrome .contact-form {
-        width: 100% !important;
-        min-width: auto !important;
-        max-width: 100% !important;
-      }
+      /* Edge y Chrome - Formulario a ancho completo en tablet (ya manejado en reglas móviles arriba) */
       
       .contact-form input,
       .contact-form textarea {
@@ -1261,13 +1388,7 @@
         margin: 0 !important; 
       }
       
-      /* Edge y Chrome - Formulario a ancho completo en tablet y móvil */
-      .is-edge .contact-form,
-      .is-chrome .contact-form {
-        width: 100% !important;
-        min-width: auto !important;
-        max-width: 100% !important;
-      }
+      /* Edge y Chrome - Formulario a ancho completo en tablet y móvil (ya manejado en reglas móviles arriba) */
       
       .contact-form label {
         font-size: 15px;
@@ -1329,13 +1450,7 @@
         padding: 1rem 0 2rem 0 !important;
       }
       
-      /* Edge y Chrome - Formulario a ancho completo en móvil */
-      .is-edge .contact-form,
-      .is-chrome .contact-form {
-        width: 100% !important;
-        min-width: auto !important;
-        max-width: 100% !important;
-      }
+      /* Edge y Chrome - Formulario a ancho completo en móvil (ya manejado en reglas móviles arriba) */
       
       .contact-form input,
       .contact-form textarea {
