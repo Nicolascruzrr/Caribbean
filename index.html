@@ -122,6 +122,37 @@
       }
     }
     </script>
+    <style>
+      /* Chrome / Edge - Mobile only: small visual adjustments for mobile Chrome/Edge
+         Keep changes scoped to mobile and to those browsers only by checking
+         the classes added to <html> (is-chrome / is-edge). */
+      @media (max-width: 480px) {
+        /* Keep title almost identical to Firefox but allow minor tuning */
+        .is-chrome .new-hero .new-hero-title,
+        .is-edge .new-hero .new-hero-title {
+          font-size: 1.95rem !important;
+          line-height: 1.28 !important;
+        }
+
+        /* On Chrome/Edge mobile force the hero paragraph to use the
+           'tablet-horizontal' variant so it appears like the scrolled state
+           and doesn't switch when the user scrolls. Hide the default variant. */
+        .is-chrome .new-hero .new-hero-sub-default,
+        .is-edge .new-hero .new-hero-sub-default {
+          display: none !important;
+        }
+
+        .is-chrome .new-hero .new-hero-sub-tablet-horizontal,
+        .is-edge .new-hero .new-hero-sub-tablet-horizontal {
+          display: block !important;
+          margin: 0 auto 32px auto !important;
+          max-width: 52ch !important;
+          line-height: 1.7 !important;
+          font-size: 0.9375rem !important;
+          padding: 0 24px !important;
+        }
+      }
+    </style>
 </head>
 <body>
 <nav class="navbar" id="navbar">
