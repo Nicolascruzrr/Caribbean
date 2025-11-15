@@ -548,22 +548,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Formulario de contacto
-document.addEventListener('DOMContentLoaded', function() {
-  const contactForm = document.querySelector('.contact-form');
-  const successNotification = document.getElementById('success-notification');
-  
-  if (contactForm && successNotification) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      successNotification.classList.add('show');
-      setTimeout(() => {
-        successNotification.classList.remove('show');
-        setTimeout(() => contactForm.reset(), 400);
-      }, 8500);
-    });
-  }
-});
+// Formulario de contacto - DESHABILITADO (ahora manejado por script en index.html con EmailJS)
+// document.addEventListener('DOMContentLoaded', function() {
+//   const contactForm = document.querySelector('.contact-form');
+//   const successNotification = document.getElementById('success-notification');
+//   
+//   if (contactForm && successNotification) {
+//     contactForm.addEventListener('submit', function(e) {
+//       e.preventDefault();
+//       successNotification.classList.add('show');
+//       setTimeout(() => {
+//         successNotification.classList.remove('show');
+//         setTimeout(() => contactForm.reset(), 400);
+//       }, 8500);
+//     });
+//   }
+// });
 
 // ======================
 // TIMELINE ANIMATIONS

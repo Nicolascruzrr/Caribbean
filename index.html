@@ -1603,45 +1603,96 @@
   </div>
   
   <script>
-    // Inicializar EmailJS
-    (function() {
-      emailjs.init("8rKv256UkVXXWls8o"); // Reemplaza con tu User ID de EmailJS
-    })();
+    // Nota: la inicialización de EmailJS se realizará dentro de DOMContentLoaded
+    // para evitar condiciones de carrera con el script cargado con `defer`.
 
     document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar EmailJS aquí para asegurar que la librería ya fue cargada por el CDN (defer)
+      if (typeof emailjs !== 'undefined') {
+        try {
+          emailjs.init("OdJ2T4bAUINhCpefP");
+          console.log('EmailJS inicializado correctamente con Public Key (DOMContentLoaded)');
+        } catch (err) {
+          console.error('Error iniciando EmailJS:', err);
+        }
+      } else {
+        console.error('EmailJS no está disponible al inicializar en DOMContentLoaded');
+      }
       const form = document.getElementById('premiumContactForm');
       const notification = document.getElementById('premiumSuccessNotification');
       const submitBtn = document.getElementById('submitBtn');
+      
+      if (!form || !notification || !submitBtn) {
+        console.error('No se encontraron elementos del formulario', { form, notification, submitBtn });
+        return;
+      }
+      
       const btnText = submitBtn.querySelector('.btn-text');
       const btnLoading = submitBtn.querySelector('.btn-loading');
       
+      if (!btnText || !btnLoading) {
+        console.error('No se encontraron elementos de estado del botón', { btnText, btnLoading });
+        return;
+      }
+      
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+        console.log('Formulario enviado');
+        
+        // Validación mínima nativa (todos required)
+        if (!form.checkValidity()) {
+          console.log('Formulario no válido');
+          form.reportValidity();
+          return;
+        }
         
         // Activar estado de loading
         submitBtn.disabled = true;
         btnText.style.display = 'none';
         btnLoading.style.display = 'flex';
         
-        // Obtener datos del formulario
-        // Validación mínima nativa (todos required)
-        if (!form.checkValidity()) {
-          submitBtn.disabled = false; btnText.style.display = 'inline'; btnLoading.style.display = 'none';
-          form.reportValidity();
-          return;
-        }
-
         const formData = {
+          // Nombre del remitente (para el cuerpo del email)
           from_name: form.querySelector('#premiumName').value,
+          // Dirección del remitente (para el cuerpo) y también incluimos claves alternativas
           from_email: form.querySelector('#premiumEmail').value,
+          // Algunas plantillas usan `email` o `reply_to` — las incluimos para compatibilidad
+          email: form.querySelector('#premiumEmail').value,
+          reply_to: form.querySelector('#premiumEmail').value,
+          // Nombre visible fijo del remitente (puedes poner "Caribbean Website")
+          site_name: 'Caribbean Website',
           phone: form.querySelector('#premiumPhone').value,
           message: form.querySelector('#premiumMessage').value
         };
         
+        console.log('Datos del formulario:', formData);
+        
+        // Verificar que EmailJS existe
+        if (typeof emailjs === 'undefined') {
+          console.error('EmailJS no está disponible');
+          submitBtn.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+          alert('Error: El servicio de email no está disponible. Por favor intenta más tarde.');
+          return;
+        }
+        
+        console.log('Enviando con Service ID: service_mubv2se, Template ID: template_gaqhlpu');
+        
+        // Crear un timeout para detectar si no hay respuesta después de 10 segundos
+        let timeoutId = setTimeout(() => {
+          console.error('TIMEOUT: No se recibió respuesta de EmailJS después de 10 segundos');
+          submitBtn.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+          alert('Error: El servicio tardó demasiado en responder. Por favor verifica tu conexión y tus credenciales de EmailJS.');
+        }, 10000);
+        
         // Enviar email usando EmailJS
         emailjs.send('service_mubv2se', 'template_gaqhlpu', formData)
           .then(function(response) {
-            console.log('Email enviado exitosamente!', response.status, response.text);
+            clearTimeout(timeoutId);
+            console.log('✓ Email enviado exitosamente!', response);
             
             // Desactivar estado de loading
             submitBtn.disabled = false;
@@ -1660,16 +1711,29 @@
             }, 4000);
           })
           .catch(function(error) {
-            console.error('Error al enviar email:', error);
-            console.error('Detalles del error:', error.text || error.message || error);
+            clearTimeout(timeoutId);
+            console.error('✗ Error al enviar email:', error);
+            console.error('Error status:', error.status);
+            console.error('Error text:', error.text);
+            console.error('Error message:', error.message);
             
             // Desactivar estado de loading
             submitBtn.disabled = false;
             btnText.style.display = 'inline';
             btnLoading.style.display = 'none';
             
-            // Mostrar notificación de error con más detalles
-            alert('Error al enviar el mensaje: ' + (error.text || error.message || 'Error desconocido') + '. Por favor, inténtalo de nuevo o contáctanos directamente.');
+            // Mostrar alerta de error
+            let errorMsg = 'Error desconocido';
+            if (error.status === 400) {
+              errorMsg = 'Error 400: Verifica que tu Service ID y Template ID sean correctos en EmailJS';
+            } else if (error.status === 401) {
+              errorMsg = 'Error 401: Tu User ID de EmailJS no es válido';
+            } else if (error.status === 422) {
+              errorMsg = 'Error 422: Verifica que tu plantilla en EmailJS tenga los campos correctos (from_name, from_email, phone, message)';
+            } else {
+              errorMsg = error.text || error.message || errorMsg;
+            }
+            alert('Error al enviar el mensaje:\n' + errorMsg + '\n\nPor favor, intenta de nuevo.');
           });
       });
     });
