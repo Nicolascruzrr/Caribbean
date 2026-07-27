@@ -30,31 +30,20 @@ function initNav() {
   const overlay = document.querySelector("[data-menu-overlay]");
   const icon = document.querySelector("[data-menu-icon]");
 
-  // Inner pages (not Inicio): solid nav from the start — no scroll needed
-  const alwaysSolid = Boolean(nav?.classList.contains("nav--solid"));
-
-  if (nav && alwaysSolid) {
-    nav.classList.add("is-scrolled");
-  }
-
-  const onScroll = () => {
-    if (!nav) return;
-    if (alwaysSolid) {
-      nav.classList.add("is-scrolled");
-      return;
+  if (nav && !nav.classList.contains("nav--solid")) {
+    const onScroll = () => {
+      const y = window.__lenis?.scroll ?? window.scrollY ?? 0;
+      nav.classList.toggle("is-scrolled", y > 40);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    if (window.__lenis) {
+      window.__lenis.on("scroll", onScroll);
+    } else {
+      requestAnimationFrame(() => {
+        if (window.__lenis) window.__lenis.on("scroll", onScroll);
+      });
     }
-    const y = window.__lenis?.scroll ?? window.scrollY ?? 0;
-    nav.classList.toggle("is-scrolled", y > 40);
-  };
-
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-  if (window.__lenis) {
-    window.__lenis.on("scroll", onScroll);
-  } else {
-    requestAnimationFrame(() => {
-      if (window.__lenis) window.__lenis.on("scroll", onScroll);
-    });
   }
 
   if (!trigger || !overlay) return;
@@ -83,7 +72,14 @@ function initTransitions() {
     const link = e.target.closest?.("a[href]");
     if (!link) return;
     const href = link.getAttribute("href");
-    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("http") || link.target === "_blank") {
+    if (
+      !href ||
+      href.startsWith("#") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      href.startsWith("http") ||
+      link.target === "_blank"
+    ) {
       return;
     }
     if (animating) {
