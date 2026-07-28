@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Contacto — Caribbean Buildings Constructions." />
+  <title>Contacto — Caribbean Buildings Constructions</title>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <script>
+    (function () {
+      try {
+        if (sessionStorage.getItem("cbc-page-transition") === "1") {
+          document.documentElement.classList.add("from-nav");
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="loader" data-loader aria-hidden="true">
+    <img class="loader__logo" src="../img/CBC%20Logo.png" alt="" width="120" height="120" />
+  </div>
+  <div class="page-transition" data-page-transition aria-hidden="true">
+    <div class="page-transition__line" data-page-line></div>
+  </div>
+
+  <header class="nav nav--solid">
+    <a href="../" class="nav__logo" aria-label="Caribbean Buildings Constructions — Inicio">
+      <img src="../img/logo.png" alt="Caribbean Buildings Constructions" />
+    </a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="../" class="nav__link">Inicio</a>
+      <a href="../proyectos/" class="nav__link">Proyectos</a>
+      <a href="../nosotros/" class="nav__link">Nosotros</a>
+      <a href="./" class="nav__link is-active">Contacto</a>
+    </nav>
+    <button class="nav__trigger" data-menu-trigger aria-expanded="false" aria-label="Abrir Men&uacute;">
+      <span class="nav__trigger-icon" data-menu-icon><i></i><i></i></span>
+    </button>
+  </header>
+
+  <div class="menu-overlay" data-menu-overlay aria-hidden="true">
+    <div class="menu-overlay__inner">
+      <nav class="menu-overlay__links">
+        <a href="../" class="menu-overlay__link" style="transition-delay:0.1s">Inicio</a>
+        <a href="../proyectos/" class="menu-overlay__link" style="transition-delay:0.15s">Proyectos</a>
+        <a href="../nosotros/" class="menu-overlay__link" style="transition-delay:0.2s">Nosotros</a>
+        <a href="./" class="menu-overlay__link" style="transition-delay:0.25s">Contacto</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="contact">
+    <div class="contact__top">
+      <h1 class="contact__title reveal-lines" data-reveal-lines>
+        <span class="reveal-lines__line"><span class="reveal-lines__inner">contacto</span></span>
+      </h1>
+    </div>
+    <div class="contact__main">
+      <a href="mailto:caribbeanarq@gmail.com" class="contact__email">caribbeanarq@gmail.com</a>
+      <div class="contact__grid">
+        <div class="contact__col">
+          <span class="eyebrow">Dirección</span>
+          <p>Plaza Thesalia, Av. Carlos Perez Ricart 19<br />Santo Domingo</p>
+        </div>
+        <div class="contact__col">
+          <span class="eyebrow">Teléfono</span>
+          <p><a href="tel:+18098922298">+1 (809) 892-2298</a></p>
+        </div>
+        <div class="contact__col">
+          <span class="eyebrow">S&iacute;guenos</span>
+          <p class="contact__social">
+            <a href="https://www.instagram.com/caribbeanbuildingsc/" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/CaribbeanBuildings" target="_blank" rel="noreferrer">Facebook</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>
