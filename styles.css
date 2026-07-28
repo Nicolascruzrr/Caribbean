@@ -377,6 +377,19 @@ body.no-scroll .nav__trigger {
   }
 }
 
+html.from-nav .loader {
+  display: none !important;
+}
+
+html.from-nav .page-transition {
+  display: block !important;
+  clip-path: inset(0 0 0% 0);
+}
+
+html.from-nav .page-transition__line {
+  transform: scaleX(1);
+}
+
 /* ——— Page transition ——— */
 .page-transition {
   position: fixed;

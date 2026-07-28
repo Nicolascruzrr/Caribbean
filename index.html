@@ -10,6 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Inter:wght@400;500&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      try {
+        if (sessionStorage.getItem("cbc-page-transition") === "1") {
+          document.documentElement.classList.add("from-nav");
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <div class="loader" data-loader aria-hidden="true">
@@ -20,14 +29,14 @@
   </div>
 
   <header class="nav nav--on-dark">
-    <a href="index.html" class="nav__logo" aria-label="Caribbean Buildings Constructions — Inicio">
+    <a href="./" class="nav__logo" aria-label="Caribbean Buildings Constructions — Inicio">
       <img src="img/logo.png" alt="Caribbean Buildings Constructions" />
     </a>
     <nav class="nav__links" aria-label="Principal">
-      <a href="index.html" class="nav__link is-active">Inicio</a>
-      <a href="proyectos.html" class="nav__link">Proyectos</a>
-      <a href="nosotros.html" class="nav__link">Nosotros</a>
-      <a href="contacto.html" class="nav__link">Contacto</a>
+      <a href="./" class="nav__link is-active">Inicio</a>
+      <a href="proyectos/" class="nav__link">Proyectos</a>
+      <a href="nosotros/" class="nav__link">Nosotros</a>
+      <a href="contacto/" class="nav__link">Contacto</a>
     </nav>
     <button class="nav__trigger" data-menu-trigger aria-expanded="false" aria-label="Abrir menu">
       <span class="nav__trigger-icon" data-menu-icon><i></i><i></i></span>
@@ -37,10 +46,10 @@
   <div class="menu-overlay" data-menu-overlay aria-hidden="true">
     <div class="menu-overlay__inner">
       <nav class="menu-overlay__links">
-        <a href="index.html" class="menu-overlay__link" style="transition-delay:0.1s">Inicio</a>
-        <a href="proyectos.html" class="menu-overlay__link" style="transition-delay:0.15s">Proyectos</a>
-        <a href="nosotros.html" class="menu-overlay__link" style="transition-delay:0.2s">Nosotros</a>
-        <a href="contacto.html" class="menu-overlay__link" style="transition-delay:0.25s">Contacto</a>
+        <a href="./" class="menu-overlay__link" style="transition-delay:0.1s">Inicio</a>
+        <a href="proyectos/" class="menu-overlay__link" style="transition-delay:0.15s">Proyectos</a>
+        <a href="nosotros/" class="menu-overlay__link" style="transition-delay:0.2s">Nosotros</a>
+        <a href="contacto/" class="menu-overlay__link" style="transition-delay:0.25s">Contacto</a>
       </nav>
     </div>
   </div>
@@ -66,7 +75,7 @@
           Construyendo el hogar de tus sue&ntilde;os
         </div>
         <p class="home-hero__lede">Transformamos visiones arquitect&oacute;nicas en realidades impresionantes con un compromiso inquebrantable hacia la excelencia y la innovaci&oacute;n.</p>
-        <a href="contacto.html" class="home-hero__cta">Solicitar Informaci&oacute;n</a>
+        <a href="contacto/" class="home-hero__cta">Solicitar Informaci&oacute;n</a>
       </div>
     </section>
 
@@ -90,7 +99,7 @@
         <h2 class="work-section__title">Proyectos</h2>
       </div>
       <div class="work-list">
-        <a href="proyectos/caribbean-view.html" class="work-row work-row--large-left">
+        <a href="proyectos/caribbean-view/" class="work-row work-row--large-left">
           <div class="work-row__figure" data-reveal><div class="work-row__image"><img src="img/caribbean-view/cover.jpg" alt="Caribbean View" loading="lazy" /></div></div>
           <div class="work-row__caption">
             <h3 class="work-row__name">Caribbean View</h3>
@@ -98,7 +107,7 @@
             <span class="work-row__arrow" aria-hidden="true">&#8599;</span>
           </div>
         </a>
-        <a href="proyectos/edificio-caribbean.html" class="work-row work-row--right">
+        <a href="proyectos/edificio-caribbean/" class="work-row work-row--right">
           <div class="work-row__figure" data-reveal><div class="work-row__image"><img src="img/edificio-caribbean/cover.jpg" alt="Edificio Caribbean" loading="lazy" /></div></div>
           <div class="work-row__caption">
             <h3 class="work-row__name">Edificio Caribbean</h3>

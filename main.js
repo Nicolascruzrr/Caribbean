@@ -60,6 +60,8 @@ function initNav() {
   });
 }
 
+const PAGE_TRANSITION_KEY = "cbc-page-transition";
+
 function initTransitions() {
   if (typeof gsap === "undefined") return;
   const overlay = document.querySelector("[data-page-transition]");
@@ -92,6 +94,9 @@ function initTransitions() {
 
     const tl = gsap.timeline({
       onComplete: () => {
+        try {
+          sessionStorage.setItem(PAGE_TRANSITION_KEY, "1");
+        } catch (_) {}
         window.location.href = href;
       },
     });
@@ -107,6 +112,33 @@ function initTransitions() {
       "-=0.16"
     );
   });
+}
+
+function playEnterTransition() {
+  if (typeof gsap === "undefined") return;
+  const overlay = document.querySelector("[data-page-transition]");
+  const line = overlay?.querySelector("[data-page-line]");
+  if (!overlay) return;
+
+  gsap.set(overlay, { display: "block", clipPath: "inset(0 0 0% 0)" });
+  if (line) gsap.set(line, { scaleX: 1 });
+
+  const tl = gsap.timeline({
+    onComplete: () => {
+      document.documentElement.classList.remove("from-nav");
+      gsap.set(overlay, { display: "none", clearProps: "clipPath" });
+      if (line) gsap.set(line, { clearProps: "scaleX" });
+    },
+  });
+
+  if (line) {
+    tl.to(line, { scaleX: 0, duration: 0.28, ease: "power2.inOut" });
+  }
+  tl.to(
+    overlay,
+    { clipPath: "inset(100% 0 0% 0)", duration: 0.38, ease: "power3.inOut" },
+    line ? "-=0.12" : 0
+  );
 }
 
 function initRevealLines() {
@@ -275,7 +307,22 @@ function initServices() {
 }
 
 function initLoader() {
+  let fromNav = false;
+  try {
+    fromNav = sessionStorage.getItem(PAGE_TRANSITION_KEY) === "1";
+    if (fromNav) sessionStorage.removeItem(PAGE_TRANSITION_KEY);
+  } catch (_) {}
+
   const loader = document.querySelector("[data-loader]");
+
+  // Internal nav: skip Caribbean logo — keep only white + black line
+  if (fromNav) {
+    if (loader) loader.remove();
+    document.body.classList.remove("no-scroll");
+    playEnterTransition();
+    return;
+  }
+
   if (!loader) return;
 
   document.body.classList.add("no-scroll");

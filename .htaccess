@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Redirect old .html URLs to clean folder URLs
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^proyectos\.html$ /proyectos/ [R=301,L]
+RewriteRule ^nosotros\.html$ /nosotros/ [R=301,L]
+RewriteRule ^contacto\.html$ /contacto/ [R=301,L]
+RewriteRule ^proyectos/caribbean-view\.html$ /proyectos/caribbean-view/ [R=301,L]
+RewriteRule ^proyectos/edificio-caribbean\.html$ /proyectos/edificio-caribbean/ [R=301,L]
+
+# Prefer trailing-slash directory URLs
+DirectorySlash On
+DirectoryIndex index.html
